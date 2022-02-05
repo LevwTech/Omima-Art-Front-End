@@ -11,15 +11,13 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "../../Assets/menu.png";
-import Login from "../../Assets/login.png";
+import LoginIcon from "../../Assets/login.png";
 import { Link } from "react-router-dom";
-const isAuth = false;
+const isAuth = true;
 
 const pages = ["Home", "Gallery", "Exhibitions", "Contact ", "About"];
 const settings = ["My Collection", "Logout"];
 const logo = "Omima Art Gallery";
-let linkKey = 1;
-let linkKey2 = 1;
 
 const Nav = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -82,9 +80,9 @@ const Nav = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {pages.map((page, index) => (
                 <Link
-                  key={linkKey2++}
+                  key={index}
                   to={page.toLowerCase() === "home" ? "/" : page.toLowerCase()}
                   style={{ textDecoration: "none", color: "#4a4a4a" }}
                 >
@@ -104,9 +102,9 @@ const Nav = () => {
             {logo}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {pages.map((page, index) => (
               <Link
-                key={linkKey++}
+                key={index}
                 to={page.toLowerCase() === "home" ? "/" : page.toLowerCase()}
                 style={{ textDecoration: "none" }}
               >
@@ -121,7 +119,7 @@ const Nav = () => {
             ))}
           </Box>
           {isAuth ? (
-            <Box sx={{ flexGrow: 0 }}>
+            <Box sx={{ flexGrow: 0 }} style={{ marginRight: "10px" }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -152,7 +150,11 @@ const Nav = () => {
               </Menu>
             </Box>
           ) : (
-            <img src={Login} alt="Login" />
+            <img
+              src={LoginIcon}
+              style={{ width: "40px", height: "40px", marginRight: "10px" }}
+              alt="Login"
+            />
           )}
         </Toolbar>
       </Container>

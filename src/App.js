@@ -1,4 +1,6 @@
 import Nav from "./Components/Nav/Nav.js";
+import React from "react";
+import Footer from "./Components/Footer/Footer.js";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Gallery from "./Pages/Gallery/Gallery";
@@ -8,10 +10,11 @@ import Contact from "./Pages/Contact/Contact";
 import NoPage from "./Pages/NoPage/NoPage";
 import GalleryItem from "./Components/GalleryItem/GalleryItem";
 import ExhibitionEvent from "./Components/ExhibitionEvent/ExhibitionEvent";
+import ScrollButton from "./Components/ScrollButton/ScrollButton.js";
 
 function App() {
   return (
-    <div className="App">
+    <React.Fragment>
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -23,7 +26,9 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
-    </div>
+      <ScrollButton />
+      <Footer />
+    </React.Fragment>
   );
 }
 
