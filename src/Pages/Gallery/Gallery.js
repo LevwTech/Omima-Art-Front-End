@@ -24,8 +24,9 @@ function Gallery() {
     <div className={classes.gallery}>
       <HeaderTitle title="Gallery" sub="Singed and unique original paintings" />
       <div className={classes.parent}>
-        {testPaintings.map((test) => (
+        {testPaintings.map((test, index) => (
           <Link
+            key={index}
             to={`/gallery/${test.id}`}
             style={{ textDecoration: "inherit", color: "inherit" }}
             className={classes.child}

@@ -21,39 +21,38 @@ function GalleryItem() {
   };
 
   return (
-    <div className={classes.galleryItem}>
+    <React.Fragment>
       <HeaderTitle title={test.pName} sub={test.description} />
       <div className={classes.buyInfo}>
         <div className={classes.price}>{`$${test.price}`}</div>
         <button className={classes.buyBtn}>BUY IT NOW</button>
       </div>
-      <div className={classes.slider}>
-        {Number(window.screen.width) < 900 ? (
-          <SimpleImageSlider
-            style={{
-              margin: "auto",
-              boxShadow: `0px 1px 10px 1px #07030541`,
-            }}
-            width={"100%"}
-            height={"500px"}
-            images={test.imgs}
-            showBullets={true}
-            showNavs={true}
-          />
-        ) : (
-          <SimpleImageSlider
-            style={{
-              margin: "auto",
-              boxShadow: `0px 1px 10px 1px #07030541`,
-            }}
-            width={"50%"}
-            height={"600px"}
-            images={test.imgs}
-            showBullets={true}
-            showNavs={true}
-          />
-        )}
-      </div>
+
+      {Number(window.screen.width) < 900 ? (
+        <SimpleImageSlider
+          style={{
+            margin: "auto",
+            boxShadow: `0px 1px 10px 1px #07030541`,
+          }}
+          width={"100%"}
+          height={"500px"}
+          images={test.imgs}
+          showBullets={true}
+          showNavs={true}
+        />
+      ) : (
+        <SimpleImageSlider
+          style={{
+            margin: "auto",
+            boxShadow: `0px 1px 10px 1px #07030541`,
+          }}
+          width={"50%"}
+          height={"600px"}
+          images={test.imgs}
+          showBullets={true}
+          showNavs={true}
+        />
+      )}
 
       <div className={classes.backBtn}>
         <Link to="/gallery" style={{ textDecoration: "none" }}>
@@ -62,7 +61,7 @@ function GalleryItem() {
           </Button>
         </Link>
       </div>
-    </div>
+    </React.Fragment>
   );
 }
 export default GalleryItem;

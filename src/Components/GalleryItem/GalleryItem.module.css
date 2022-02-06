@@ -15,9 +15,7 @@
     width: 70%;
   }
 }
-.galleryItem {
-  margin-bottom: 100px;
-}
+
 .buyBtn {
   font-family: "Roboto", sans-serif;
   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
@@ -47,4 +45,5 @@
 .backBtn {
   margin-top: 50px;
   text-align: center;
+  margin-bottom: 50px;
 }
