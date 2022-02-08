@@ -28,7 +28,7 @@ input[type="email"] {
 }
 
 /* Style the submit button with a specific background color etc */
-.submit {
+input[type="submit"] {
   background-color: #04aa6d;
   color: white;
   padding: 12px 20px;
@@ -38,7 +38,7 @@ input[type="email"] {
 }
 
 /* When moving the mouse over the submit button, add a darker green color */
-.submit:hover {
+input[type="submit"]:hover {
   background-color: #45a049;
 }
 

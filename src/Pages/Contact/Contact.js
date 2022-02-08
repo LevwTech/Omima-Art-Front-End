@@ -3,7 +3,6 @@ import FBIcon from "../../Assets/contact/facebook.png";
 import InstaIcon from "../../Assets/contact/instagram.png";
 import classes from "./Contact.module.css";
 import React from "react";
-import Button from "@mui/material/Button";
 
 function Contact() {
   return (
@@ -60,9 +59,8 @@ function Contact() {
             placeholder="Write something.."
             style={{ height: "200px" }}
           ></textarea>
-          <Button variant="contained" color="success" className="Submit">
-            Submit
-          </Button>
+
+          <input type="submit" value="Submit" className="Submit"></input>
         </form>
       </div>
     </React.Fragment>

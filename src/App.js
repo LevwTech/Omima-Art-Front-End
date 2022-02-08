@@ -11,6 +11,7 @@ import NoPage from "./Pages/NoPage/NoPage";
 import GalleryItem from "./Components/GalleryItem/GalleryItem";
 import ExhibitionEvent from "./Components/ExhibitionEvent/ExhibitionEvent";
 import ScrollButton from "./Components/ScrollButton/ScrollButton.js";
+import Collection from "./Pages/Collection/Collection";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="exhibitions/:id" element={<ExhibitionEvent />} />
         <Route path="contact" element={<Contact />} />
         <Route path="about" element={<About />} />
+        <Route path="collection" element={<Collection />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
       <ScrollButton />

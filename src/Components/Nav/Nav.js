@@ -16,7 +16,6 @@ import { Link } from "react-router-dom";
 const isAuth = true;
 
 const pages = ["Home", "Gallery", "Exhibitions", "Contact ", "About"];
-const settings = ["My Collection", "Logout"];
 const logo = "Omima Art Gallery";
 
 const Nav = () => {
@@ -142,11 +141,17 @@ const Nav = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
+                <Link
+                  to="/collection"
+                  style={{ textDecoration: "none", color: "rgba(0,0,0,0.87)" }}
+                >
+                  <MenuItem key="My Collection" onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">My Collection</Typography>
                   </MenuItem>
-                ))}
+                </Link>
+                <MenuItem key="Logout" onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">Logout</Typography>
+                </MenuItem>
               </Menu>
             </Box>
           ) : (
