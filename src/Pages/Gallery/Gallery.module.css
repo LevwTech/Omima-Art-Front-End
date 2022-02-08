@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Changa&display=swap");
 .gallery {
   display: block;
   height: 10%;
@@ -33,10 +34,9 @@
   text-align: center;
 }
 .price {
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
-  font-size: 15px;
-  margin-bottom: 10px;
+  font-family: "Changa", sans-serif;
+  font-size: 17px;
+  margin-bottom: 5px;
   text-align: center;
 }
 .seeMoreBtn {

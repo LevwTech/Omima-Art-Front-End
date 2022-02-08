@@ -21,7 +21,7 @@ function ExhibitionEvent() {
   return (
     <div>
       <HeaderTitle title={test.title} />
-      <div className={classes.desc}>{test.description}</div>
+      <div className={`${classes.desc} ${classes.tv}`}>{test.description}</div>
       {Number(window.screen.width) < 900 ? (
         <SimpleImageSlider
           style={{

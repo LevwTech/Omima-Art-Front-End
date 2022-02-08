@@ -20,3 +20,15 @@
     line-height: 1.4;
   }
 }
+
+.tv {
+  position: relative;
+  background: white;
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+  box-shadow: 15px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+}
+.tv:hover {
+  border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
+}

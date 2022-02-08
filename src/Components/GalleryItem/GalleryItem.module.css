@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Changa&display=swap");
 .buyInfo {
   display: flex;
   flex-direction: row;
@@ -39,8 +40,8 @@
   border: 3px #0c274d solid;
 }
 .price {
-  font-size: 20px;
-  font-family: "Roboto", sans-serif;
+  font-size: 22px;
+  font-family: "Changa", sans-serif;
 }
 .backBtn {
   margin-top: 50px;

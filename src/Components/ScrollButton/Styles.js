@@ -19,6 +19,6 @@ export const Button = styled.div`
   font-size: 3rem;
   z-index: 1;
   cursor: pointer;
-  color: #e60b66;
+  color: #a9a9a9;
   opacity: 0.9;
 `;
