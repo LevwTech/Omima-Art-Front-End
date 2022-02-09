@@ -3,8 +3,8 @@
   flex-flow: row wrap;
   width: 70%;
   margin: auto;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  /* margin-top: 40px; */
+  /* margin-bottom: 40px; */
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
 }

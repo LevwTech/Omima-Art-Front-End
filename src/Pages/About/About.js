@@ -7,7 +7,14 @@ function About() {
   return (
     <React.Fragment>
       <HeaderTitle title="About the Artist" />
-      <div className={classes.parent}>
+      <div
+        className={classes.parent}
+        style={{
+          backgroundColor: "#EDEADE",
+          marginTop: "20px",
+          marginBottom: "30px",
+        }}
+      >
         <img src={img2} alt="painting" />
         <div className={classes.about}>
           <span> Omima </span> is an abstract and figurative painter from Egypt
@@ -21,7 +28,10 @@ function About() {
         </div>
       </div>
 
-      <div className={classes.parent}>
+      <div
+        className={classes.parent}
+        style={{ backgroundColor: "#E9DCC9", marginBottom: "30px  " }}
+      >
         <div className={classes.about}>
           I’ve been drawing every chance I can get (even all over the attic
           staircase). I already knew I wanted to do something creative. After I

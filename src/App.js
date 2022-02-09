@@ -2,7 +2,6 @@ import Nav from "./Components/Nav/Nav.js";
 import React from "react";
 import Footer from "./Components/Footer/Footer.js";
 import { Route, Routes } from "react-router-dom";
-import Home from "./Pages/Home/Home";
 import Gallery from "./Pages/Gallery/Gallery";
 import Exhibitions from "./Pages/Exhibitions/Exhibitions";
 import About from "./Pages/About/About";
@@ -18,7 +17,7 @@ function App() {
     <React.Fragment>
       <Nav />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Gallery />} />
         <Route path="gallery" element={<Gallery />} />
         <Route path="gallery/:id" element={<GalleryItem />} />
         <Route path="exhibitions" element={<Exhibitions />} />

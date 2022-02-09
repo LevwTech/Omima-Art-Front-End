@@ -15,7 +15,7 @@ import LoginIcon from "../../Assets/login.png";
 import { Link } from "react-router-dom";
 const isAuth = true;
 
-const pages = ["Home", "Gallery", "Exhibitions", "Contact ", "About"];
+const pages = ["Gallery", "Exhibitions", "Contact ", "About"];
 const logo = "Omima Art Gallery";
 
 const Nav = () => {
