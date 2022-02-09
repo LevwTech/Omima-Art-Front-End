@@ -10,7 +10,7 @@ import Painting3 from "../../Assets/test/painting3.jpg";
 import Painting4 from "../../Assets/test/painting4.jpg";
 
 function Collection() {
-  const bought = false;
+  const bought = true;
   const testPaintings = [
     { image: Painting1, pName: "painting1", price: "59", id: "1" },
     { image: Painting2, pName: "painting2", price: "4900", id: "2" },

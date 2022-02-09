@@ -12,7 +12,7 @@ import Painting6 from "../../Assets/test/painting6.jpeg";
 function GalleryItem() {
   // const { id } = useParams(); // use to fetch
   const test = {
-    imgs: [{ url: Painting6 }, { url: Painting5 }],
+    imgs: [{ url: Painting5 }, { url: Painting6 }],
 
     pName: "painting1",
     description: "50 cm x 70 cm Nature Oil Painting",
