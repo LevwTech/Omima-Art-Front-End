@@ -1,0 +1,17 @@
+.form {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+}
+.form label {
+  margin-top: 20px;
+}
+input[type="submit"] {
+  width: 40%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

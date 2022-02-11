@@ -1,34 +1,39 @@
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./GalleryItem.module.css";
 import SimpleImageSlider from "react-simple-image-slider";
 import HeaderTitle from "../HeaderTitle/HeaderTitle";
-
-import Painting5 from "../../Assets/test/painting5.jpeg";
-import Painting6 from "../../Assets/test/painting6.jpeg";
+import Skeleton from "@mui/material/Skeleton";
 
 function GalleryItem() {
-  // const { id } = useParams(); // use to fetch
-  const test = {
-    imgs: [{ url: Painting5 }, { url: Painting6 }],
+  const { id } = useParams();
+  const [painting, setPainting] = useState({});
+  const [show, setShow] = useState(false);
 
-    pName: "painting1",
-    description: "50 cm x 70 cm Nature Oil Painting",
-    price: "199",
-    id: "1",
-  };
+  useEffect(() => {
+    fetch(`http://localhost:3000/painting/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setPainting(data);
+        setShow(true);
+      });
+  }, []);
 
+  if (!show)
+    return (
+      <Skeleton sx={{ height: 600 }} animation="wave" variant="rectangular" />
+    );
   return (
     <React.Fragment>
-      <HeaderTitle title={test.pName} sub={test.description} />
+      <HeaderTitle title={painting.title} sub={painting.desc} />
       <div className={classes.buyInfo}>
-        <div className={classes.price}>{`$${test.price}`}</div>
+        <div className={classes.price}>{`$${painting.price}`}</div>
         <button className={classes.buyBtn}>BUY IT NOW</button>
       </div>
 
-      {Number(window.screen.width) < 900 ? (
+      {Number(window.screen.width) < 900 && (
         <SimpleImageSlider
           style={{
             margin: "auto",
@@ -36,11 +41,12 @@ function GalleryItem() {
           }}
           width={"100%"}
           height={"500px"}
-          images={test.imgs}
+          images={painting.images}
           showBullets={true}
           showNavs={true}
         />
-      ) : (
+      )}
+      {Number(window.screen.width) > 900 && (
         <SimpleImageSlider
           style={{
             margin: "auto",
@@ -48,7 +54,7 @@ function GalleryItem() {
           }}
           width={"50%"}
           height={"600px"}
-          images={test.imgs}
+          images={painting.images}
           showBullets={true}
           showNavs={true}
         />

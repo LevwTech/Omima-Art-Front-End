@@ -1,44 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import HeaderTitle from "../../Components/HeaderTitle/HeaderTitle";
 import classes from "./Gallery.module.css";
 import { Link } from "react-router-dom";
-
 import Button from "@mui/material/Button";
-import Painting1 from "../../Assets/test/painting1.jpg";
-import Painting2 from "../../Assets/test/painting2.jpg";
-import Painting3 from "../../Assets/test/painting3.jpg";
-import Painting4 from "../../Assets/test/painting4.jpg";
+import Skeleton from "@mui/material/Skeleton";
 
 function Gallery() {
-  const testPaintings = [
-    { image: Painting1, pName: "painting1", price: "59", id: "1" },
-    { image: Painting2, pName: "painting2", price: "4900", id: "2" },
-    { image: Painting3, pName: "painting3", price: "690", id: "3" },
-    { image: Painting4, pName: "painting4", price: "321", id: "4" },
-    { image: Painting1, pName: "painting5", price: "355", id: "5" },
-    { image: Painting2, pName: "painting6", price: "345", id: "6" },
-    { image: Painting3, pName: "painting7", price: "299", id: "7" },
-    { image: Painting4, pName: "painting8", price: "100", id: "8" },
-  ];
+  const [paintings, setPaintings] = useState([]);
+  const [skip, setSkip] = useState(0);
+  const [show, setShow] = useState(false);
+  function loadPaintings() {
+    fetch(`http://localhost:3000/paintings?skip=${skip}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setPaintings((paintings) => [...paintings, ...data]);
+        setShow(true);
+      });
+    setSkip((skip) => skip + 10);
+  }
+
+  useEffect(() => {
+    loadPaintings();
+  }, []);
+  if (!show)
+    return (
+      <Skeleton sx={{ height: 600 }} animation="wave" variant="rectangular" />
+    );
   return (
     <div className={classes.gallery}>
       <HeaderTitle title="Gallery" sub="Singed and unique original paintings" />
       <div className={classes.parent}>
-        {testPaintings.map((test, index) => (
+        {paintings.map((painting, index) => (
           <Link
             key={index}
-            to={`/gallery/${test.id}`}
+            to={`/gallery/${painting._id}`}
             style={{ textDecoration: "inherit", color: "inherit" }}
             className={classes.child}
           >
-            <img src={test.image} alt={test.pName} />
-            <div className={classes.pName}>{test.pName}</div>
-            <div className={classes.price}>{`$${test.price}`}</div>
+            <img
+              src={`http://localhost:3000/${painting.images[0]
+                .split("\\")
+                .pop()}`}
+              alt={painting.title}
+            />
+            <div className={classes.pName}>{painting.title}</div>
+            <div className={classes.price}>{`$${painting.price}`}</div>
           </Link>
         ))}
       </div>
       <div className={classes.seeMoreBtn}>
-        <Button size="large" variant="contained">
+        <Button size="large" variant="contained" onClick={loadPaintings}>
           Load More
         </Button>
       </div>

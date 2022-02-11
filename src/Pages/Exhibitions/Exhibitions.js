@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -9,42 +10,29 @@ import classes from "./Exhibitions.module.css";
 import HeaderTitle from "../../Components/HeaderTitle/HeaderTitle";
 import ShareModal from "../../Components/ShareModal/ShareModal";
 import { Link } from "react-router-dom";
-
-const test = [
-  {
-    id: 1,
-    title: "Sharm Exhibition",
-    image: "https://i.ibb.co/9sWGb1f/download.jpg",
-    desc: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-  },
-  {
-    id: 2,
-    title: "Sharm Exhibition2",
-    image: "https://i.ibb.co/m5HBhYH/download-1.jpg",
-    desc: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-  },
-  {
-    id: 3,
-    title: "Cairo Exhibition",
-    image: "https://i.ibb.co/9WCFKbL/exhibition-design-scenography-0.jpg",
-    desc: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-  },
-  {
-    id: 4,
-    title: "Cairo Exhibition2",
-    image: "https://i.ibb.co/m5HBhYH/download-1.jpg",
-    desc: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-  },
-  {
-    id: 5,
-    title: "Baghdad Exhibition",
-    image: "https://i.ibb.co/9sWGb1f/download.jpg",
-    desc: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-  },
-];
+import Skeleton from "@mui/material/Skeleton";
 
 function Exhibitions() {
   const url = "http://127.0.0.1:3000/";
+  const [exhibitions, setExhibitions] = useState([]);
+  const [show, setShow] = useState(false);
+
+  function loadExhibitions() {
+    fetch(`http://localhost:3000/exhibitions`)
+      .then((response) => response.json())
+      .then((data) => {
+        setExhibitions([...data]);
+        setShow(true);
+      });
+  }
+
+  useEffect(() => {
+    loadExhibitions();
+  }, []);
+  if (!show)
+    return (
+      <Skeleton sx={{ height: 600 }} animation="wave" variant="rectangular" />
+    );
   return (
     <div>
       <HeaderTitle
@@ -52,13 +40,13 @@ function Exhibitions() {
         sub=" Art exhibitons in many different places that Omima took part in"
       />
       <div className={classes.parent}>
-        {test.map((exh, index) => (
+        {exhibitions.map((exh, index) => (
           <Card className={classes.child} key={index} sx={{ maxWidth: 345 }}>
             <CardMedia
               component="img"
               alt={exh.title}
               height="140"
-              image={exh.image}
+              image={`http://localhost:3000/${exh.images[0].split("\\").pop()}`}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -69,9 +57,9 @@ function Exhibitions() {
               </Typography>
             </CardContent>
             <CardActions>
-              <ShareModal url={`${url}/exhibitions/${exh.id}`} />
+              <ShareModal url={`${url}/exhibitions/${exh._id}`} />
               <Link
-                to={`/exhibitions/${exh.id}`}
+                to={`/exhibitions/${exh._id}`}
                 style={{ textDecoration: "none" }}
               >
                 <Button size="small">Learn More</Button>
@@ -79,11 +67,6 @@ function Exhibitions() {
             </CardActions>
           </Card>
         ))}
-      </div>
-      <div className={classes.seeMoreBtn}>
-        <Button size="large" variant="contained">
-          Load More
-        </Button>
       </div>
     </div>
   );

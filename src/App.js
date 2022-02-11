@@ -11,6 +11,7 @@ import GalleryItem from "./Components/GalleryItem/GalleryItem";
 import ExhibitionEvent from "./Components/ExhibitionEvent/ExhibitionEvent";
 import ScrollButton from "./Components/ScrollButton/ScrollButton.js";
 import Collection from "./Pages/Collection/Collection";
+import Admin from "./Pages/Admin/Admin";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="about" element={<About />} />
         <Route path="collection" element={<Collection />} />
+        <Route path="admin" element={<Admin />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
       <ScrollButton />

@@ -1,27 +1,33 @@
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import HeaderTitle from "../HeaderTitle/HeaderTitle";
 import SimpleImageSlider from "react-simple-image-slider";
 import classes from "./ExhibitionEvent.module.css";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-function ExhibitionEvent() {
-  const test = {
-    id: "1",
-    imgs: [
-      { url: "https://i.ibb.co/9WCFKbL/exhibition-design-scenography-0.jpg" },
-      { url: "https://i.ibb.co/9sWGb1f/download.jpg" },
-      { url: "https://i.ibb.co/m5HBhYH/download-1.jpg" },
-    ],
-    title: "Sharm Exhibition",
-    description:
-      "On 29/9/2019 the annual art exhibition took place in cairo which i happily took part in and my painting which is included below took the first place Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except AntarcticaLizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except AntarcticaLizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except AntarcticaLizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except AntarcticaLizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-  };
+import React, { useState, useEffect } from "react";
+import Skeleton from "@mui/material/Skeleton";
 
-  // const { id } = useParams(); // use for fetch
+function ExhibitionEvent() {
+  const { id } = useParams();
+  const [exhibition, setExhibition] = useState({});
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    fetch(`http://localhost:3000/exhibition/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setExhibition(data);
+        setShow(true);
+      });
+  }, []);
+
+  if (!show)
+    return (
+      <Skeleton sx={{ height: 600 }} animation="wave" variant="rectangular" />
+    );
   return (
     <div>
-      <HeaderTitle title={test.title} />
-      <div className={`${classes.desc} ${classes.tv}`}>{test.description}</div>
+      <HeaderTitle title={exhibition.title} />
+      <div className={`${classes.desc} ${classes.tv}`}>{exhibition.desc}</div>
       {Number(window.screen.width) < 900 ? (
         <SimpleImageSlider
           style={{
@@ -30,7 +36,7 @@ function ExhibitionEvent() {
           }}
           width={"100%"}
           height={"500px"}
-          images={test.imgs}
+          images={exhibition.images}
           showBullets={true}
           showNavs={true}
         />
@@ -42,7 +48,7 @@ function ExhibitionEvent() {
           }}
           width={"50%"}
           height={"600px"}
-          images={test.imgs}
+          images={exhibition.images}
           showBullets={true}
           showNavs={true}
         />
