@@ -7,28 +7,38 @@ import React from "react";
 function Contact() {
   return (
     <React.Fragment>
-      <HeaderTitle title="Contact us!" sub="We would love to hear from you" />
+      <HeaderTitle title="Contact me!" sub="I would love to hear from you" />
       <div className={classes.contact}>
-        <div>You can email us directly at</div>
-        <a href="mailto:omima@gmail.com"> omima@gmail.com</a>
-        <div>or send us a message at</div>
-        <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
+        <div>You can email me directly at</div>
+        <a href="mailto:omimaaboelnasr@hotmail.com">
+          Omimaaboelnasr@hotmail.com
+        </a>
+        <div>or send me a message at</div>
+        <a
+          href="https://www.facebook.com/OA-Art-Gallery-1475989659102601"
+          target="_blank"
+          rel="noreferrer"
+        >
           <img src={FBIcon} alt="facebook" />
         </a>
-        <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+        <a
+          href="https://www.instagram.com/omima_aboelnasr/"
+          target="_blank"
+          rel="noreferrer"
+        >
           <img src={InstaIcon} alt="instagram" />
         </a>
       </div>
 
       <div className={classes.container}>
         <div className={classes.send}>Send us a quick message!</div>
-        <form action="action_page.php">
+        <form method="post" action="https://formspree.io/f/myyowykv">
           <label htmlFor="fname">First Name</label>
           <input
             required
             type="text"
             id="fname"
-            name="firstname"
+            name="first"
             placeholder="Your name.."
           />
 
@@ -37,7 +47,7 @@ function Contact() {
             required
             type="text"
             id="lname"
-            name="lastname"
+            name="last"
             placeholder="Your last name.."
           />
 
@@ -47,7 +57,7 @@ function Contact() {
             required
             type="email"
             id="email"
-            name="email"
+            name="from"
             placeholder="Your email.."
           />
 
@@ -55,7 +65,7 @@ function Contact() {
           <textarea
             required
             id="subject"
-            name="subject"
+            name="text"
             placeholder="Write something.."
             style={{ height: "200px" }}
           ></textarea>

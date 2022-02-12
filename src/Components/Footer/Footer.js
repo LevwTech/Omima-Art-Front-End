@@ -41,11 +41,19 @@ function Footer() {
           </Link>
         </div>
         <div className={classes.section}>
-          <h1>Follow us!</h1>
-          <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
+          <h1>Follow me!</h1>
+          <a
+            href="https://www.facebook.com/OA-Art-Gallery-1475989659102601"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img src={FBIcon} alt="facebook" />
           </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.instagram.com/omima_aboelnasr/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img src={instaIcon} alt="instagram" />
           </a>
         </div>
