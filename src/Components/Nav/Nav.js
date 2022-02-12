@@ -13,12 +13,13 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "../../Assets/menu.png";
 import LoginIcon from "../../Assets/login.png";
 import { Link } from "react-router-dom";
-const isAuth = true;
+import { useAuth0 } from "@auth0/auth0-react";
 
 const pages = ["Gallery", "Exhibitions", "Contact ", "About"];
 const logo = "Omima Art Gallery";
 
 const Nav = () => {
+  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -117,11 +118,11 @@ const Nav = () => {
               </Link>
             ))}
           </Box>
-          {isAuth ? (
+          {isAuthenticated ? (
             <Box sx={{ flexGrow: 0 }} style={{ marginRight: "10px" }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                  <Avatar alt="Remy Sharp" src={user.picture} />
                 </IconButton>
               </Tooltip>
 
@@ -149,15 +150,23 @@ const Nav = () => {
                     <Typography textAlign="center">My Collection</Typography>
                   </MenuItem>
                 </Link>
-                <MenuItem key="Logout" onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Logout</Typography>
-                </MenuItem>
+                <div onClick={() => logout()}>
+                  <MenuItem key="Logout" onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">Logout</Typography>
+                  </MenuItem>
+                </div>
               </Menu>
             </Box>
           ) : (
             <img
+              onClick={() => loginWithRedirect()}
               src={LoginIcon}
-              style={{ width: "40px", height: "40px", marginRight: "10px" }}
+              style={{
+                width: "40px",
+                height: "40px",
+                marginRight: "10px",
+                cursor: "pointer",
+              }}
               alt="Login"
             />
           )}

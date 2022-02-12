@@ -1,37 +1,57 @@
 import HeaderTitle from "../../Components/HeaderTitle/HeaderTitle";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./Collection.module.css";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
-
-import Painting1 from "../../Assets/test/painting1.jpg";
-import Painting2 from "../../Assets/test/painting2.jpg";
-import Painting3 from "../../Assets/test/painting3.jpg";
-import Painting4 from "../../Assets/test/painting4.jpg";
+import { useAuth0 } from "@auth0/auth0-react";
+import Skeleton from "@mui/material/Skeleton";
 
 function Collection() {
-  const bought = true;
-  const testPaintings = [
-    { image: Painting1, pName: "painting1", price: "59", id: "1" },
-    { image: Painting2, pName: "painting2", price: "4900", id: "2" },
-    { image: Painting3, pName: "painting3", price: "690", id: "3" },
-    { image: Painting4, pName: "painting4", price: "321", id: "4" },
-  ];
+  const [collection, setCollection] = useState([]);
+  const [show, setShow] = useState(false);
+  const { loginWithRedirect, isAuthenticated, user, isLoading } = useAuth0();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      return loginWithRedirect();
+    }
+    loadCollection();
+  }, []);
+
+  function loadCollection() {
+    fetch(`http://localhost:3000/collection?owner=${user.sub}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setCollection([...data]);
+        setShow(true);
+      });
+  }
+
+  if (!show)
+    return (
+      <Skeleton sx={{ height: 600 }} animation="wave" variant="rectangular" />
+    );
+
   return (
     <React.Fragment>
-      {bought ? (
+      {collection.length !== 0 ? (
         <div className={classes.collection}>
           <HeaderTitle title="My Collection"></HeaderTitle>
           <div className={classes.parent}>
-            {testPaintings.map((test, index) => (
+            {collection.map((test, index) => (
               <Link
                 key={index}
-                to={`/gallery/${test.id}`}
+                to={`/gallery/${test._id}`}
                 style={{ textDecoration: "inherit", color: "inherit" }}
                 className={classes.child}
               >
-                <img src={test.image} alt={test.pName} />
-                <div className={classes.pName}>{test.pName}</div>
+                <img
+                  src={`http://localhost:3000/${test.images[0]
+                    .split("\\")
+                    .pop()}`}
+                  alt={test.title}
+                />
+                <div className={classes.pName}>{test.title}</div>
               </Link>
             ))}
           </div>
