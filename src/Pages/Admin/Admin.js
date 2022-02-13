@@ -13,12 +13,22 @@ function Admin() {
     if (!allowedSubs.includes(user.sub)) return navigate(`/404`);
   }, []);
   const [id, setId] = useState("");
+  const [id2, setId2] = useState("");
   function onChangeHandler(e) {
     setId(e.target.value);
+  }
+  function onChangeHandler2(e) {
+    setId2(e.target.value);
   }
   function onClickHandler(e) {
     e.preventDefault();
     fetch(`http://localhost:3000/delete/${id}`).then((data) => {
+      console.log(data);
+    });
+  }
+  function onClickHandler2(e) {
+    e.preventDefault();
+    fetch(`http://localhost:3000/Edelete/${id2}`).then((data) => {
       console.log(data);
     });
   }
@@ -85,6 +95,18 @@ function Admin() {
           onChange={onChangeHandler}
         ></input>
         <input type="submit" value="submit" onClick={onClickHandler}></input>
+      </form>
+      <HeaderTitle title="Delete Exhibition" />
+      <form className={classes.form}>
+        <label htmlFor="id">Id of Exhibition</label>
+        <input
+          id="id"
+          required
+          type="text"
+          name="id"
+          onChange={onChangeHandler2}
+        ></input>
+        <input type="submit" value="submit" onClick={onClickHandler2}></input>
       </form>
     </React.Fragment>
   );
