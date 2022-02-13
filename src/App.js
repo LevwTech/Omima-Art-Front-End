@@ -12,8 +12,10 @@ import ExhibitionEvent from "./Components/ExhibitionEvent/ExhibitionEvent";
 import ScrollButton from "./Components/ScrollButton/ScrollButton.js";
 import Collection from "./Pages/Collection/Collection";
 import Admin from "./Pages/Admin/Admin";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
+  const { loginWithRedirect, isAuthenticated, user, isLoading } = useAuth0();
   return (
     <React.Fragment>
       <Nav />
@@ -26,7 +28,7 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="about" element={<About />} />
         <Route path="collection" element={<Collection />} />
-        <Route path="admin" element={<Admin />} />
+        {isAuthenticated && <Route path="admin" element={<Admin />} />}
         <Route path="*" element={<NoPage />} />
       </Routes>
       <ScrollButton />

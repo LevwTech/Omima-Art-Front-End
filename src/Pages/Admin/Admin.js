@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeaderTitle from "../../Components/HeaderTitle/HeaderTitle";
 import classes from "./Admin.module.css";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from "react-router-dom";
 
 function Admin() {
+  let navigate = useNavigate();
+  const { user } = useAuth0();
+  useEffect(() => {
+    const allowedSubs = ["google-oauth2|106716483523184248288"];
+
+    if (!allowedSubs.includes(user.sub)) return navigate(`/404`);
+  }, []);
+
   return (
     <React.Fragment>
       <HeaderTitle title="Create Painting" />

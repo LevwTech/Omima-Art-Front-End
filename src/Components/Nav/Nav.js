@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -19,9 +20,17 @@ const pages = ["Gallery", "Exhibitions", "Contact ", "About"];
 const logo = "Omima Art Gallery";
 
 const Nav = () => {
-  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
+  const { loginWithRedirect, logout, isAuthenticated, user, isLoading } =
+    useAuth0();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [isAdmin, setIsAdmin] = React.useState(false);
+
+  const allowedSubs = ["google-oauth2|106716483523184248288"];
+  setTimeout(checkAdmin, 1000);
+  function checkAdmin() {
+    if (allowedSubs.includes(user?.sub)) setIsAdmin(true);
+  }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -155,6 +164,19 @@ const Nav = () => {
                     <Typography textAlign="center">Logout</Typography>
                   </MenuItem>
                 </div>
+                {isAdmin && (
+                  <Link
+                    to="/admin"
+                    style={{
+                      textDecoration: "none",
+                      color: "rgba(0,0,0,0.87)",
+                    }}
+                  >
+                    <MenuItem key="Admin" onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">Admin</Typography>
+                    </MenuItem>
+                  </Link>
+                )}
               </Menu>
             </Box>
           ) : (
