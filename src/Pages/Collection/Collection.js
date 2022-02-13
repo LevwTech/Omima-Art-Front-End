@@ -19,7 +19,7 @@ function Collection() {
   }, []);
 
   function loadCollection() {
-    fetch(`http://localhost:3000/collection?owner=${user.sub}`)
+    fetch(`https://omimaart.herokuapp.com/collection?owner=${user.sub}`)
       .then((response) => response.json())
       .then((data) => {
         setCollection([...data]);
@@ -46,8 +46,8 @@ function Collection() {
                 className={classes.child}
               >
                 <img
-                  src={`http://localhost:3000/${test.images[0]
-                    .split("\\")
+                  src={`https://omimaart.herokuapp.com/${test.images[0]
+                    .split("/")
                     .pop()}`}
                   alt={test.title}
                 />

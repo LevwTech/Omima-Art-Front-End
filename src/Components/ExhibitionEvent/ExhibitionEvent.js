@@ -12,7 +12,7 @@ function ExhibitionEvent() {
   const [exhibition, setExhibition] = useState({});
   const [show, setShow] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:3000/exhibition/${id}`)
+    fetch(`https://omimaart.herokuapp.com/exhibition/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setExhibition(data);

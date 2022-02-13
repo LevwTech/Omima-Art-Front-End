@@ -13,7 +13,7 @@ function GalleryItem() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/painting/${id}`)
+    fetch(`https://omimaart.herokuapp.com/painting/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setPainting(data);

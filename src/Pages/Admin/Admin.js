@@ -22,13 +22,13 @@ function Admin() {
   }
   function onClickHandler(e) {
     e.preventDefault();
-    fetch(`http://localhost:3000/delete/${id}`).then((data) => {
+    fetch(`https://omimaart.herokuapp.com/delete/${id}`).then((data) => {
       console.log(data);
     });
   }
   function onClickHandler2(e) {
     e.preventDefault();
-    fetch(`http://localhost:3000/Edelete/${id2}`).then((data) => {
+    fetch(`https://omimaart.herokuapp.com/Edelete/${id2}`).then((data) => {
       console.log(data);
     });
   }
@@ -41,7 +41,7 @@ function Admin() {
         className={classes.form}
         encType="multipart/form-data"
         method="post"
-        action="http://localhost:3000/painting"
+        action="https://omimaart.herokuapp.com/painting"
       >
         <label htmlFor="title">Title</label>
         <input id="title" required type="text" name="title"></input>
@@ -64,7 +64,7 @@ function Admin() {
         className={classes.form}
         encType="multipart/form-data"
         method="post"
-        action="http://localhost:3000/exhibition"
+        action="https://omimaart.herokuapp.com/exhibition"
       >
         <label htmlFor="title">Title</label>
         <input id="title" required type="text" name="title"></input>

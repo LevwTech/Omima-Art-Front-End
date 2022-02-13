@@ -13,12 +13,12 @@ import { Link } from "react-router-dom";
 import Skeleton from "@mui/material/Skeleton";
 
 function Exhibitions() {
-  const url = "http://127.0.0.1:3000/";
+  const url = "https://omimaart.herokuapp.com/";
   const [exhibitions, setExhibitions] = useState([]);
   const [show, setShow] = useState(false);
 
   function loadExhibitions() {
-    fetch(`http://localhost:3000/exhibitions`)
+    fetch(`https://omimaart.herokuapp.com/exhibitions`)
       .then((response) => response.json())
       .then((data) => {
         setExhibitions([...data]);
@@ -46,7 +46,9 @@ function Exhibitions() {
               component="img"
               alt={exh.title}
               height="140"
-              image={`http://localhost:3000/${exh.images[0].split("\\").pop()}`}
+              image={`https://omimaart.herokuapp.com/${exh.images[0]
+                .split("/")
+                .pop()}`}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">

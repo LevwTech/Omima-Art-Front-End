@@ -10,7 +10,7 @@ function Gallery() {
   const [skip, setSkip] = useState(0);
   const [show, setShow] = useState(false);
   function loadPaintings() {
-    fetch(`http://localhost:3000/paintings?skip=${skip}`)
+    fetch(`https://omimaart.herokuapp.com/paintings?skip=${skip}`)
       .then((response) => response.json())
       .then((data) => {
         setPaintings((paintings) => [...paintings, ...data]);
@@ -38,8 +38,8 @@ function Gallery() {
             className={classes.child}
           >
             <img
-              src={`http://localhost:3000/${painting.images[0]
-                .split("\\")
+              src={`https://omimaart.herokuapp.com/${painting.images[0]
+                .split("/")
                 .pop()}`}
               alt={painting.title}
             />
