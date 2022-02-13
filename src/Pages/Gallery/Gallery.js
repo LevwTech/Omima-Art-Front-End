@@ -28,10 +28,7 @@ function Gallery() {
     );
   return (
     <div className={classes.gallery}>
-      <HeaderTitle
-        title="Gallery"
-        sub="Singed and unique original paintings by Omima Aboelnasr"
-      />
+      <HeaderTitle title="Gallery" sub="Singed and unique original paintings" />
       <div className={classes.parent}>
         {paintings.map((painting, index) => (
           <Link
@@ -47,7 +44,9 @@ function Gallery() {
               alt={painting.title}
             />
             <div className={classes.pName}>{painting.title}</div>
-            <div className={classes.price}>{`$${painting.price}`}</div>
+            <div className={classes.price}>
+              {painting.price === 0 ? `SOLD` : `$${painting.price}`}
+            </div>
           </Link>
         ))}
       </div>

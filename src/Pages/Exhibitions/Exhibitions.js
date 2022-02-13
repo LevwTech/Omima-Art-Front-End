@@ -37,7 +37,7 @@ function Exhibitions() {
     <div>
       <HeaderTitle
         title="Exhibitons"
-        sub=" Art exhibitons in many different places that Omima Aboelnasr took part in"
+        sub=" Art exhibitons in many different places that Omima took part in"
       />
       <div className={classes.parent}>
         {exhibitions.map((exh, index) => (

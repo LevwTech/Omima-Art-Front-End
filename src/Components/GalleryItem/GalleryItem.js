@@ -29,8 +29,12 @@ function GalleryItem() {
     <React.Fragment>
       <HeaderTitle title={painting.title} sub={painting.desc} />
       <div className={classes.buyInfo}>
-        <div className={classes.price}>{`$${painting.price}`}</div>
-        <button className={classes.buyBtn}>BUY IT NOW</button>
+        <div className={classes.price}>
+          {painting.price === 0 ? `SOLD` : `$${painting.price}`}
+        </div>
+        {painting.price !== 0 && (
+          <button className={classes.buyBtn}>BUY IT NOW</button>
+        )}
       </div>
 
       {Number(window.screen.width) < 900 && (
