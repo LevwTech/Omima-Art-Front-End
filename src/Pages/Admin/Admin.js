@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import HeaderTitle from "../../Components/HeaderTitle/HeaderTitle";
 import classes from "./Admin.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -12,6 +12,16 @@ function Admin() {
 
     if (!allowedSubs.includes(user.sub)) return navigate(`/404`);
   }, []);
+  const [id, setId] = useState("");
+  function onChangeHandler(e) {
+    setId(e.target.value);
+  }
+  function onClickHandler(e) {
+    e.preventDefault();
+    fetch(`http://localhost:3000/delete/${id}`).then((data) => {
+      console.log(data);
+    });
+  }
 
   return (
     <React.Fragment>
@@ -62,6 +72,19 @@ function Admin() {
         ></input>
 
         <input type="submit" value="submit"></input>
+      </form>
+      <hr style={{ borderBottom: "2px black solid", marginTop: "30px" }}></hr>
+      <HeaderTitle title="Delete Painting" />
+      <form className={classes.form}>
+        <label htmlFor="id">Id of Painting</label>
+        <input
+          id="id"
+          required
+          type="text"
+          name="id"
+          onChange={onChangeHandler}
+        ></input>
+        <input type="submit" value="submit" onClick={onClickHandler}></input>
       </form>
     </React.Fragment>
   );
