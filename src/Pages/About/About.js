@@ -17,14 +17,13 @@ function About() {
       >
         <img src={img2} alt="painting" />
         <div className={classes.about}>
-          <span> Omima </span> is an abstract and figurative painter from Egypt
-          who finds inspiration throughout the daily random encounters and the
-          own voice and expression of the creation process. <br /> <br /> Her
+          <span>Omima Aboelnasr</span> is a fine artist from Egypt who recieved
+          masters in chemistry and is now a full-time artist who has been
+          passionate about drawing ever since childhood. <br /> <br /> Her
           ambition is to achieve balance between color, luminosity and
           mathematical distance, but also to break it to create that beautiful
-          contrast between harmony and chaos. Omima has exhibited both in Egypt
-          and Europe and her work has been sold to more than 20 different
-          countries around the world.
+          contrast between harmony and chaos. She started by drawing portraits,
+          natural views and still life artworks using oil and water colors.
         </div>
       </div>
 
@@ -33,15 +32,14 @@ function About() {
         style={{ backgroundColor: "#E9DCC9", marginBottom: "30px  " }}
       >
         <div className={classes.about}>
-          I’ve been drawing every chance I can get (even all over the attic
-          staircase). I already knew I wanted to do something creative. After I
-          got my masters in Chemistry and settled down, I went right back to the
-          one thing I really loved: painting. In 2010, I created my first blog
-          to share my passion. <br /> <br />
-          Later on - in 2015 - I decided to offer services, like murals,
-          customized paintings, and illustrations. I regularly exhibit at art
-          markets and manage my own social media. In my online shop, you can buy
-          original signed unique paintings.
+          She carried on to develop her talent by drawing every chance she gets
+          and reading about fine art. She has made and attended many solo and
+          group art exhibitions. <br /> <br />
+          She loves colors and her paintings mix between many art schools which
+          results in a unique style. In this online shop, you can buy original
+          signed unique paintings by Omima, All her paintings are on high
+          quality canvas using high quality colors with varnish to preserve the
+          colors.
         </div>
         <img src={img1} alt="painting" />
       </div>
