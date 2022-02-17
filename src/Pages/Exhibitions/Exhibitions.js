@@ -59,7 +59,7 @@ function Exhibitions() {
               </Typography>
             </CardContent>
             <CardActions>
-              <ShareModal url={`${url}/exhibitions/${exh._id}`} />
+              <ShareModal url={`${url}/#/exhibitions/${exh._id}`} />
               <Link
                 to={`/exhibitions/${exh._id}`}
                 style={{ textDecoration: "none" }}
