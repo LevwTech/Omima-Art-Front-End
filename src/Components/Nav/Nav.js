@@ -15,9 +15,9 @@ import MenuIcon from "../../Assets/menu.png";
 import LoginIcon from "../../Assets/login.png";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import logo from "../../Assets/OmimaArtLogo2.png";
 
 const pages = ["Gallery", "Exhibitions", "Contact ", "About"];
-const logo = "Omima Art Gallery";
 
 const Nav = () => {
   const { loginWithRedirect, logout, isAuthenticated, user, isLoading } =
@@ -57,7 +57,7 @@ const Nav = () => {
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
-            {logo}
+            <img src={logo} alt="logo" style={{ maxWidth: "90%" }} />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -108,8 +108,9 @@ const Nav = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           >
-            {logo}
+            <img src={logo} alt="logo" style={{ maxWidth: "90%" }} />
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page, index) => (
               <Link
