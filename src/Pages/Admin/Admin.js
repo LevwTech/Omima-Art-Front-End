@@ -8,7 +8,10 @@ function Admin() {
   let navigate = useNavigate();
   const { user } = useAuth0();
   useEffect(() => {
-    const allowedSubs = ["google-oauth2|106716483523184248288"];
+    const allowedSubs = [
+      "google-oauth2|106716483523184248288",
+      "auth0|620ea784e08c3d006a486b84",
+    ];
 
     if (!allowedSubs.includes(user.sub)) return navigate(`/404`);
   }, []);
