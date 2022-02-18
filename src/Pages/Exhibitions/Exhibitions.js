@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import Skeleton from "@mui/material/Skeleton";
 
 function Exhibitions() {
-  const url = "https://omimaart.netlify.app";
+  const url = "https://omima.art/";
   const [exhibitions, setExhibitions] = useState([]);
   const [show, setShow] = useState(false);
 
