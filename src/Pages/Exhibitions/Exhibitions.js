@@ -46,9 +46,7 @@ function Exhibitions() {
               component="img"
               alt={exh.title}
               height="140"
-              image={`https://omimaart.herokuapp.com/${exh.images[0]
-                .split("/")
-                .pop()}`}
+              image={exh.images[0]}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">

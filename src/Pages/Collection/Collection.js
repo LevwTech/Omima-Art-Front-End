@@ -45,12 +45,7 @@ function Collection() {
                 style={{ textDecoration: "inherit", color: "inherit" }}
                 className={classes.child}
               >
-                <img
-                  src={`https://omimaart.herokuapp.com/${test.images[0]
-                    .split("/")
-                    .pop()}`}
-                  alt={test.title}
-                />
+                <img src={test.images[0]} alt={test.title} />
                 <div className={classes.pName}>{test.title}</div>
               </Link>
             ))}

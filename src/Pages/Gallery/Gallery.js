@@ -37,12 +37,7 @@ function Gallery() {
             style={{ textDecoration: "inherit", color: "inherit" }}
             className={classes.child}
           >
-            <img
-              src={`https://omimaart.herokuapp.com/${painting.images[0]
-                .split("/")
-                .pop()}`}
-              alt={painting.title}
-            />
+            <img src={paintings.images[0]} alt={painting.title} />
             <div className={classes.pName}>{painting.title}</div>
             <div className={classes.price}>
               {painting.price === 0 ? `SOLD` : `$${painting.price}`}
