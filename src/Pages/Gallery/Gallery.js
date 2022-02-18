@@ -37,7 +37,7 @@ function Gallery() {
             style={{ textDecoration: "inherit", color: "inherit" }}
             className={classes.child}
           >
-            <img src={paintings.images[0]} alt={painting.title} />
+            <img src={painting.images[0]} alt={painting.title} />
             <div className={classes.pName}>{painting.title}</div>
             <div className={classes.price}>
               {painting.price === 0 ? `SOLD` : `$${painting.price}`}
