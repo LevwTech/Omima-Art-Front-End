@@ -15,8 +15,9 @@ import MenuIcon from "../../Assets/menu.png";
 import LoginIcon from "../../Assets/login.png";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-import logo from "../../Assets/OmimaArtLogo2.png";
-
+// import logo from "../../Assets/OmimaArtLogo2.png";
+import classes from "./Nav.module.css";
+// start
 const pages = ["Gallery", "Exhibitions", "Contact ", "About"];
 
 const Nav = () => {
@@ -59,8 +60,9 @@ const Nav = () => {
             noWrap
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            className={classes.logo}
           >
-            <img src={logo} alt="logo" style={{ maxWidth: "90%" }} />
+            Omima Aboelnasr
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -110,8 +112,9 @@ const Nav = () => {
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+            className={classes.logo}
           >
-            <img src={logo} alt="logo" style={{ maxWidth: "90%" }} />
+            Omima Aboelnasr
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
