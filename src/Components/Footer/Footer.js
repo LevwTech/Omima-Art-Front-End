@@ -11,14 +11,8 @@ function Footer() {
       <footer className={classes.footer}>
         <div className={classes.section}>
           <h1>Menu</h1>
-          <Link to="/" style={{ textDecoration: "none", color: "#ffffff" }}>
-            <div>Home</div>
-          </Link>
 
-          <Link
-            to="/gallery"
-            style={{ textDecoration: "none", color: "#ffffff" }}
-          >
+          <Link to="/" style={{ textDecoration: "none", color: "#ffffff" }}>
             <div>Gallery</div>
           </Link>
           <Link
