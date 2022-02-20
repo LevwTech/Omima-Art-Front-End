@@ -3,6 +3,7 @@ import FBIcon from "../../Assets/contact/facebook.png";
 import InstaIcon from "../../Assets/contact/instagram.png";
 import classes from "./Contact.module.css";
 import React from "react";
+import Button from "@mui/material/Button";
 
 function Contact() {
   return (
@@ -41,7 +42,6 @@ function Contact() {
             name="first"
             placeholder="Your name.."
           />
-
           <label htmlFor="lname">Last Name</label>
           <input
             required
@@ -50,9 +50,7 @@ function Contact() {
             name="last"
             placeholder="Your last name.."
           />
-
           <label htmlFor="email">Email</label>
-
           <input
             required
             type="email"
@@ -60,7 +58,6 @@ function Contact() {
             name="from"
             placeholder="Your email.."
           />
-
           <label htmlFor="subject">Subject</label>
           <textarea
             required
@@ -69,8 +66,15 @@ function Contact() {
             placeholder="Write something.."
             style={{ height: "200px" }}
           ></textarea>
-
-          <input type="submit" value="Submit" className="Submit"></input>
+          <Button
+            variant="contained"
+            color="success"
+            type="submit"
+            value="Submit"
+            size="large"
+          >
+            Submit
+          </Button>
         </form>
       </div>
     </React.Fragment>
