@@ -9,7 +9,6 @@ import Contact from "./Pages/Contact/Contact";
 import NoPage from "./Pages/NoPage/NoPage";
 import GalleryItem from "./Components/GalleryItem/GalleryItem";
 import ExhibitionEvent from "./Components/ExhibitionEvent/ExhibitionEvent";
-import ScrollButton from "./Components/ScrollButton/ScrollButton.js";
 import Collection from "./Pages/Collection/Collection";
 import Admin from "./Pages/Admin/Admin";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -31,7 +30,6 @@ function App() {
         {isAuthenticated && <Route path="admin" element={<Admin />} />}
         <Route path="*" element={<NoPage />} />
       </Routes>
-      <ScrollButton />
       <Footer />
     </React.Fragment>
   );
