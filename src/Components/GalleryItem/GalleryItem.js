@@ -41,7 +41,7 @@ function GalleryItem() {
       </div>
 
       {Number(window.screen.width) < 900 && (
-        <Carousel>
+        <Carousel infiniteLoop="true">
           {painting.images.map((image, index) => (
             <div key={index}>
               <img src={image.url} />
