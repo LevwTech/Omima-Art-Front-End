@@ -6,6 +6,8 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Skeleton from "@mui/material/Skeleton";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 
 function ExhibitionEvent() {
   const { id } = useParams();
@@ -30,7 +32,7 @@ function ExhibitionEvent() {
       <div className={`${classes.desc} ${classes.tv}`}>{exhibition.desc}</div>
       {Number(window.screen.width) < 900 ? (
         <Carousel>
-          {painting.images.map((image, index) => (
+          {exhibition.images.map((image, index) => (
             <div key={index}>
               <img src={image.url} />
             </div>
