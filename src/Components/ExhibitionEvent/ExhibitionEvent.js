@@ -31,7 +31,7 @@ function ExhibitionEvent() {
       <HeaderTitle title={exhibition.title} />
       <div className={`${classes.desc} ${classes.tv}`}>{exhibition.desc}</div>
       {Number(window.screen.width) < 900 ? (
-        <Carousel infiniteLoop="true">
+        <Carousel infiniteLoop={true} swipeable={false}>
           {exhibition.images.map((image, index) => (
             <div key={index}>
               <img src={image.url} />
