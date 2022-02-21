@@ -29,17 +29,13 @@ function ExhibitionEvent() {
       <HeaderTitle title={exhibition.title} />
       <div className={`${classes.desc} ${classes.tv}`}>{exhibition.desc}</div>
       {Number(window.screen.width) < 900 ? (
-        <SimpleImageSlider
-          style={{
-            margin: "auto",
-            boxShadow: `0px 1px 10px 1px #07030541`,
-          }}
-          width={"100%"}
-          height={"500px"}
-          images={exhibition.images}
-          showBullets={true}
-          showNavs={true}
-        />
+        <Carousel>
+          {painting.images.map((image, index) => (
+            <div key={index}>
+              <img src={image.url} />
+            </div>
+          ))}
+        </Carousel>
       ) : (
         <SimpleImageSlider
           style={{
