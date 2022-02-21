@@ -7,6 +7,9 @@ import SimpleImageSlider from "react-simple-image-slider";
 import HeaderTitle from "../HeaderTitle/HeaderTitle";
 import Skeleton from "@mui/material/Skeleton";
 
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+
 function GalleryItem() {
   const { id } = useParams();
   const [painting, setPainting] = useState({});
@@ -38,17 +41,13 @@ function GalleryItem() {
       </div>
 
       {Number(window.screen.width) < 900 && (
-        <SimpleImageSlider
-          style={{
-            margin: "auto",
-            boxShadow: `0px 1px 10px 1px #07030541`,
-          }}
-          width={"100%"}
-          height={"500px"}
-          images={painting.images}
-          showBullets={true}
-          showNavs={true}
-        />
+        <Carousel>
+          {painting.images.map((image, index) => (
+            <div key={index}>
+              <img src={image.url} />
+            </div>
+          ))}
+        </Carousel>
       )}
       {Number(window.screen.width) > 900 && (
         <SimpleImageSlider
