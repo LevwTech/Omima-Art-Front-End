@@ -41,7 +41,7 @@ function GalleryItem() {
       </div>
 
       {Number(window.screen.width) < 900 && (
-        <Carousel infiniteLoop={true} swipeable={false}>
+        <Carousel infiniteLoop={true} swipeable={false} dynamicHeight={true}>
           {painting.images.map((image, index) => (
             <div key={index} className={classes.fix}>
               <img src={image.url} />
