@@ -17,11 +17,19 @@ function Admin() {
   }, []);
   const [id, setId] = useState("");
   const [id2, setId2] = useState("");
+  const [id3, setId3] = useState("");
+  const [price, setPrice] = useState("");
   function onChangeHandler(e) {
     setId(e.target.value);
   }
   function onChangeHandler2(e) {
     setId2(e.target.value);
+  }
+  function onChangeHandler3(e) {
+    setId3(e.target.value);
+  }
+  function onChangeHandler4(e) {
+    setPrice(e.target.value);
   }
   function onClickHandler(e) {
     e.preventDefault();
@@ -34,6 +42,14 @@ function Admin() {
     fetch(`https://omimaart.herokuapp.com/Edelete/${id2}`).then((data) => {
       console.log(data);
     });
+  }
+  function onClickHandler3(e) {
+    e.preventDefault();
+    fetch(`https://omimaart.herokuapp.com/price/${id3}&:${price}`).then(
+      (data) => {
+        console.log(data);
+      }
+    );
   }
 
   return (
@@ -87,6 +103,26 @@ function Admin() {
         <input type="submit" value="submit"></input>
       </form>
       <hr style={{ borderBottom: "2px black solid", marginTop: "30px" }}></hr>
+      <HeaderTitle title="Change Painting Price" />
+      <form className={classes.form}>
+        <label htmlFor="id">Id of Painting</label>
+        <input
+          id="id"
+          required
+          type="text"
+          name="id"
+          onChange={onChangeHandler3}
+        ></input>
+        <label htmlFor="price">New Price</label>
+        <input
+          id="price"
+          required
+          type="number"
+          name="price"
+          onChange={onChangeHandler4}
+        ></input>
+        <input type="submit" value="submit" onClick={onClickHandler3}></input>
+      </form>
       <HeaderTitle title="Delete Painting" />
       <form className={classes.form}>
         <label htmlFor="id">Id of Painting</label>
