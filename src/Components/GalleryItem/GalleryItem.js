@@ -9,11 +9,26 @@ import Skeleton from "@mui/material/Skeleton";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function GalleryItem() {
+  const { loginWithRedirect, logout, isAuthenticated, user, isLoading } =
+    useAuth0();
+  const [isAdmin, setIsAdmin] = useState(false);
   const { id } = useParams();
   const [painting, setPainting] = useState({});
   const [show, setShow] = useState(false);
+  const [copy, setCopy] = useState(false);
+
+  const allowedSubs = [
+    "google-oauth2|106716483523184248288",
+    "auth0|620ea784e08c3d006a486b84",
+  ];
+  setTimeout(checkAdmin, 1000);
+  function checkAdmin() {
+    if (allowedSubs.includes(user?.sub)) setIsAdmin(true);
+  }
 
   useEffect(() => {
     fetch(`https://omimaart.herokuapp.com/painting/${id}`)
@@ -39,6 +54,21 @@ function GalleryItem() {
           <button className={classes.buyBtn}>BUY IT NOW</button>
         )}
       </div>
+      {isAdmin && (
+        <CopyToClipboard text={id} onCopy={() => setCopy(true)}>
+          <div className={classes.copyBtn}>
+            {copy ? (
+              <Button variant="contained" size="medium" color="success">
+                Copied
+              </Button>
+            ) : (
+              <Button variant="contained" size="medium">
+                Copy ID
+              </Button>
+            )}
+          </div>
+        </CopyToClipboard>
+      )}
 
       {Number(window.screen.width) < 900 && (
         <Carousel
