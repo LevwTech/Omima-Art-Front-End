@@ -18,7 +18,7 @@ function Admin() {
   const [id, setId] = useState("");
   const [id2, setId2] = useState("");
   const [id3, setId3] = useState("");
-  const [price, setPrice] = useState("");
+  const [newPrice, setNewPrice] = useState("");
   function onChangeHandler(e) {
     setId(e.target.value);
   }
@@ -45,7 +45,7 @@ function Admin() {
   }
   function onClickHandler3(e) {
     e.preventDefault();
-    fetch(`https://omimaart.herokuapp.com/price/${id3}&:${price}`).then(
+    fetch(`https://omimaart.herokuapp.com/price/${id3}&:${newPrice}`).then(
       (data) => {
         console.log(data);
       }
@@ -115,10 +115,10 @@ function Admin() {
         ></input>
         <label htmlFor="price">New Price</label>
         <input
-          id="price"
+          id="newPrice"
           required
           type="number"
-          name="price"
+          name="newPrice"
           onChange={onChangeHandler4}
         ></input>
         <input type="submit" value="submit" onClick={onClickHandler3}></input>
