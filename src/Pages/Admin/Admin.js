@@ -29,7 +29,7 @@ function Admin() {
     setId3(e.target.value);
   }
   function onChangeHandler4(e) {
-    setPrice(e.target.value);
+    setNewPrice(e.target.value);
   }
   function onClickHandler(e) {
     e.preventDefault();
