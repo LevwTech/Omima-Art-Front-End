@@ -45,7 +45,7 @@ function Admin() {
   }
   function onClickHandler3(e) {
     e.preventDefault();
-    fetch(`https://omimaart.herokuapp.com/price/${id3}/${newPrice}`).then(
+    fetch(`https://omimaart.herokuapp.com/price/${id3}&${newPrice}`).then(
       (data) => {
         console.log(data);
       }
