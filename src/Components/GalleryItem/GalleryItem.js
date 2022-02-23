@@ -60,7 +60,7 @@ function GalleryItem() {
                 Copied
               </Button>
             ) : (
-              <Button variant="contained" size="medium">
+              <Button variant="contained" size="small">
                 Copy ID
               </Button>
             )}
