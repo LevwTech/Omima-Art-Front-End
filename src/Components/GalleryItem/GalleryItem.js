@@ -53,10 +53,8 @@ function GalleryItem() {
         {painting.price !== 0 && (
           <button className={classes.buyBtn}>BUY IT NOW</button>
         )}
-      </div>
-      {isAdmin && (
-        <CopyToClipboard text={id} onCopy={() => setCopy(true)}>
-          <div className={classes.copyBtn}>
+        {isAdmin && (
+          <CopyToClipboard text={id} onCopy={() => setCopy(true)}>
             {copy ? (
               <Button variant="contained" size="medium" color="success">
                 Copied
@@ -66,9 +64,9 @@ function GalleryItem() {
                 Copy ID
               </Button>
             )}
-          </div>
-        </CopyToClipboard>
-      )}
+          </CopyToClipboard>
+        )}
+      </div>
 
       {Number(window.screen.width) < 900 && (
         <Carousel
