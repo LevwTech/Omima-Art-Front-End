@@ -56,7 +56,7 @@ function GalleryItem() {
         {isAdmin && (
           <CopyToClipboard text={id} onCopy={() => setCopy(true)}>
             {copy ? (
-              <Button variant="contained" size="medium" color="success">
+              <Button variant="contained" size="small" color="success">
                 Copied
               </Button>
             ) : (
