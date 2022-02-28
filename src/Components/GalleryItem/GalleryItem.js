@@ -12,7 +12,10 @@ import { Carousel } from "react-responsive-carousel";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useAuth0 } from "@auth0/auth0-react";
 
+import Shipping from "../../Pages/Shipping/Shipping";
+
 function GalleryItem() {
+  const [showShipping, setShowShipping] = useState(false);
   const { loginWithRedirect, logout, isAuthenticated, user, isLoading } =
     useAuth0();
   const [isAdmin, setIsAdmin] = useState(false);
@@ -39,69 +42,78 @@ function GalleryItem() {
       });
   }, []);
 
+  function onClickHandler() {
+    setShowShipping(true);
+  }
   if (!show)
     return (
       <Skeleton sx={{ height: 600 }} animation="wave" variant="rectangular" />
     );
   return (
     <React.Fragment>
-      <HeaderTitle title={painting.title} sub={painting.desc} />
-      <div className={classes.buyInfo}>
-        <div className={classes.price}>
-          {painting.price === 0 ? `SOLD` : `$${painting.price}`}
-        </div>
-        {painting.price !== 0 && (
-          <button className={classes.buyBtn}>BUY IT NOW</button>
-        )}
-        {isAdmin && (
-          <CopyToClipboard text={id} onCopy={() => setCopy(true)}>
-            {copy ? (
-              <Button variant="contained" size="small" color="success">
-                Copied
-              </Button>
-            ) : (
-              <Button variant="contained" size="small">
-                Copy ID
-              </Button>
-            )}
-          </CopyToClipboard>
-        )}
-      </div>
-
-      {Number(window.screen.width) < 900 && (
-        <Carousel
-          infiniteLoop={true}
-          preventMovementUntilSwipeScrollTolerance={true}
-          swipeScrollTolerance={30}
-        >
-          {painting.images.map((image, index) => (
-            <div key={index} className={classes.fix}>
-              <img src={image.url} alt={painting.title} />
+      {showShipping ? (
+        <Shipping items={[painting]} />
+      ) : (
+        <div>
+          <HeaderTitle title={painting.title} sub={painting.desc} />
+          <div className={classes.buyInfo}>
+            <div className={classes.price}>
+              {painting.price === 0 ? `SOLD` : `$${painting.price}`}
             </div>
-          ))}
-        </Carousel>
+            {painting.price !== 0 && (
+              <button onClick={onClickHandler} className={classes.buyBtn}>
+                BUY IT NOW
+              </button>
+            )}
+            {isAdmin && (
+              <CopyToClipboard text={id} onCopy={() => setCopy(true)}>
+                {copy ? (
+                  <Button variant="contained" size="small" color="success">
+                    Copied
+                  </Button>
+                ) : (
+                  <Button variant="contained" size="small">
+                    Copy ID
+                  </Button>
+                )}
+              </CopyToClipboard>
+            )}
+          </div>
+          {Number(window.screen.width) < 900 && (
+            <Carousel
+              infiniteLoop={true}
+              preventMovementUntilSwipeScrollTolerance={true}
+              swipeScrollTolerance={30}
+            >
+              {painting.images.map((image, index) => (
+                <div key={index} className={classes.fix}>
+                  <img src={image.url} alt={painting.title} />
+                </div>
+              ))}
+            </Carousel>
+          )}
+          {Number(window.screen.width) > 900 && (
+            <SimpleImageSlider
+              style={{
+                margin: "auto",
+                boxShadow: `0px 1px 10px 1px #07030541`,
+              }}
+              width={"50%"}
+              height={"600px"}
+              images={painting.images}
+              showBullets={true}
+              showNavs={true}
+            />
+          )}
+          <div className={classes.backBtn}>
+            <Link to="/gallery" style={{ textDecoration: "none" }}>
+              <Button variant="contained" size="large">
+                back to gallery
+              </Button>
+            </Link>
+          </div>
+        </div>
       )}
-      {Number(window.screen.width) > 900 && (
-        <SimpleImageSlider
-          style={{
-            margin: "auto",
-            boxShadow: `0px 1px 10px 1px #07030541`,
-          }}
-          width={"50%"}
-          height={"600px"}
-          images={painting.images}
-          showBullets={true}
-          showNavs={true}
-        />
-      )}
-
-      <div className={classes.backBtn}>
-        <Link to="/gallery" style={{ textDecoration: "none" }}>
-          <Button variant="contained" size="large">
-            back to gallery
-          </Button>
-        </Link>
-      </div>
     </React.Fragment>
   );
 }
