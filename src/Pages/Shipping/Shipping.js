@@ -226,7 +226,6 @@ function Shipping(props) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setNewPrice(data.newPrice);
         setFetched(true);
       });
@@ -282,7 +281,8 @@ function Shipping(props) {
               </div>
             </div>
           ) : (
-            <div style={{ height: "146px" }}></div>
+            // <div style={{ height: "146px" }}></div>
+            <div></div>
           )}
           <div className={classes.painting}>
             <img
