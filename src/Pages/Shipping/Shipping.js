@@ -231,7 +231,7 @@ function Shipping(props) {
         setFetched(true);
       });
   }
-
+  //  start
   useEffect(() => {
     if (!isAuthenticated) {
       return loginWithRedirect();
@@ -267,21 +267,31 @@ function Shipping(props) {
           placeholder="Your phone.."
           style={{ marginBottom: "35px" }}
         />
-        {fetched ? (
-          <div className={classes.CheckOut}>
-            <div>Total price with shipping</div>
-            <div className={classes.finalPrice}>
-              ${newPrice} <span>({newPrice * USD} EGP)</span>
+
+        <div className={classes.shipcontainer}>
+          {fetched ? (
+            <div className={classes.CheckOut}>
+              <div>Total price with shipping</div>
+              <div className={classes.finalPrice}>
+                ${newPrice} <span>({newPrice * USD} EGP)</span>
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <Button variant="contained" color="success" size="medium">
+                  Checkout
+                </Button>
+              </div>
             </div>
-            <div style={{ textAlign: "center" }}>
-              <Button variant="contained" color="success" size="medium">
-                Checkout
-              </Button>
-            </div>
+          ) : (
+            <div style={{ height: "146px" }}></div>
+          )}
+          <div className={classes.painting}>
+            <img
+              alt={props.items[0].title}
+              src={props.items[0].images[0].url}
+            />
+            <label>{props.items[0].title}</label>
           </div>
-        ) : (
-          <div style={{ marginBottom: "200px" }}></div>
-        )}
+        </div>
       </form>
     </React.Fragment>
   );
