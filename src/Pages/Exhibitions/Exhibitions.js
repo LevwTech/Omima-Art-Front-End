@@ -13,12 +13,11 @@ import { Link } from "react-router-dom";
 import Skeleton from "@mui/material/Skeleton";
 
 function Exhibitions() {
-  const url = "https://omima.art/";
   const [exhibitions, setExhibitions] = useState([]);
   const [show, setShow] = useState(false);
 
   function loadExhibitions() {
-    fetch(`https://omimaart.herokuapp.com/exhibitions`)
+    fetch(`${process.env.REACT_APP_SERVER_URL}/exhibitions`)
       .then((response) => response.json())
       .then((data) => {
         setExhibitions([...data]);
@@ -57,7 +56,9 @@ function Exhibitions() {
               </Typography>
             </CardContent>
             <CardActions>
-              <ShareModal url={`${url}/#/exhibitions/${exh._id}`} />
+              <ShareModal
+                url={`${process.env.REACT_APP_CLIENT_URL}/#/exhibitions/${exh._id}`}
+              />
               <Link
                 to={`/exhibitions/${exh._id}`}
                 style={{ textDecoration: "none" }}

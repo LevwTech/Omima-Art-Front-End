@@ -19,7 +19,7 @@ function Collection() {
   }, []);
 
   function loadCollection() {
-    fetch(`https://omimaart.herokuapp.com/collection?owner=${user.sub}`)
+    fetch(`${process.env.REACT_APP_SERVER_URL}/collection?owner=${user.sub}`)
       .then((response) => response.json())
       .then((data) => {
         setCollection([...data]);

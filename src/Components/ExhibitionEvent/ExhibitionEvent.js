@@ -14,7 +14,7 @@ function ExhibitionEvent() {
   const [exhibition, setExhibition] = useState({});
   const [show, setShow] = useState(false);
   useEffect(() => {
-    fetch(`https://omimaart.herokuapp.com/exhibition/${id}`)
+    fetch(`${process.env.REACT_APP_SERVER_URL}/exhibition/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setExhibition(data);

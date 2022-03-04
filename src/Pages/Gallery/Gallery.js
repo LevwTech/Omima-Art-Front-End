@@ -10,7 +10,7 @@ function Gallery() {
   const [skip, setSkip] = useState(0);
   const [show, setShow] = useState(false);
   function loadPaintings() {
-    fetch(`https://omimaart.herokuapp.com/paintings?skip=${skip}`)
+    fetch(`${process.env.REACT_APP_SERVER_URL}/paintings?skip=${skip}`)
       .then((response) => response.json())
       .then((data) => {
         setPaintings((paintings) => [...paintings, ...data]);

@@ -34,7 +34,7 @@ function GalleryItem() {
   }
 
   useEffect(() => {
-    fetch(`https://omimaart.herokuapp.com/painting/${id}`)
+    fetch(`${process.env.REACT_APP_SERVER_URL}/painting/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setPainting(data);

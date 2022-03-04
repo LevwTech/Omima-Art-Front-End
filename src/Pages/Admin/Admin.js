@@ -33,19 +33,19 @@ function Admin() {
   }
   function onClickHandler(e) {
     e.preventDefault();
-    fetch(`https://omimaart.herokuapp.com/delete/${id}`).then((data) => {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/delete/${id}`).then((data) => {
       console.log(data);
     });
   }
   function onClickHandler2(e) {
     e.preventDefault();
-    fetch(`https://omimaart.herokuapp.com/Edelete/${id2}`).then((data) => {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/Edelete/${id2}`).then((data) => {
       console.log(data);
     });
   }
   function onClickHandler3(e) {
     e.preventDefault();
-    fetch(`https://omimaart.herokuapp.com/price/${id3}&${newPrice}`).then(
+    fetch(`${process.env.REACT_APP_SERVER_URL}/price/${id3}&${newPrice}`).then(
       (data) => {
         console.log(data);
       }
@@ -60,7 +60,7 @@ function Admin() {
         className={classes.form}
         encType="multipart/form-data"
         method="post"
-        action="https://omimaart.herokuapp.com/painting"
+        action={`${process.env.REACT_APP_SERVER_URL}/painting`}
       >
         <label htmlFor="title">Title</label>
         <input id="title" required type="text" name="title"></input>
@@ -83,7 +83,7 @@ function Admin() {
         className={classes.form}
         encType="multipart/form-data"
         method="post"
-        action="https://omimaart.herokuapp.com/exhibition"
+        action={`${process.env.REACT_APP_SERVER_URL}/exhibition`}
       >
         <label htmlFor="title">Title</label>
         <input id="title" required type="text" name="title"></input>
