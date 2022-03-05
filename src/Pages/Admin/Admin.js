@@ -114,8 +114,17 @@ function Admin() {
               multiple
               name="images"
             ></input>
-
-            <input type="submit" value="submit"></input>
+            <div style={{ textAlign: "center", marginTop: "10px" }}>
+              <Button
+                variant="contained"
+                color="success"
+                type="submit"
+                value="Submit"
+                size="medium"
+              >
+                Submit
+              </Button>
+            </div>
           </form>
           <hr
             style={{ borderBottom: "2px black solid", marginTop: "30px" }}
@@ -141,8 +150,17 @@ function Admin() {
               multiple
               name="exhibitions"
             ></input>
-
-            <input type="submit" value="submit"></input>
+            <div style={{ textAlign: "center", marginTop: "10px" }}>
+              <Button
+                variant="contained"
+                color="success"
+                type="submit"
+                value="Submit"
+                size="medium"
+              >
+                Submit
+              </Button>
+            </div>
           </form>
           <hr
             style={{ borderBottom: "2px black solid", marginTop: "30px" }}
@@ -165,12 +183,22 @@ function Admin() {
               name="newPrice"
               onChange={onChangeHandler4}
             ></input>
-            <input
-              type="submit"
-              value="submit"
-              onClick={onClickHandler3}
-            ></input>
+            <div style={{ textAlign: "center", marginTop: "10px" }}>
+              <Button
+                variant="contained"
+                color="success"
+                type="submit"
+                value="Submit"
+                size="medium"
+                onClick={onClickHandler3}
+              >
+                Submit
+              </Button>
+            </div>
           </form>
+          <hr
+            style={{ borderBottom: "2px black solid", marginTop: "30px" }}
+          ></hr>
           <HeaderTitle title="Delete Painting" />
           <form className={classes.form}>
             <label htmlFor="id">Id of Painting</label>
@@ -181,12 +209,22 @@ function Admin() {
               name="id"
               onChange={onChangeHandler}
             ></input>
-            <input
-              type="submit"
-              value="submit"
-              onClick={onClickHandler}
-            ></input>
+            <div style={{ textAlign: "center", marginTop: "10px" }}>
+              <Button
+                variant="contained"
+                color="success"
+                type="submit"
+                value="Submit"
+                size="medium"
+                onClick={onClickHandler}
+              >
+                Submit
+              </Button>
+            </div>
           </form>
+          <hr
+            style={{ borderBottom: "2px black solid", marginTop: "30px" }}
+          ></hr>
           <HeaderTitle title="Delete Exhibition" />
           <form className={classes.form}>
             <label htmlFor="id">Id of Exhibition</label>
@@ -197,11 +235,24 @@ function Admin() {
               name="id"
               onChange={onChangeHandler2}
             ></input>
-            <input
-              type="submit"
-              value="submit"
-              onClick={onClickHandler2}
-            ></input>
+            <div
+              style={{
+                textAlign: "center",
+                marginBottom: "100px",
+                marginTop: "10px",
+              }}
+            >
+              <Button
+                variant="contained"
+                color="success"
+                type="submit"
+                value="Submit"
+                size="medium"
+                onClick={onClickHandler2}
+              >
+                Submit
+              </Button>
+            </div>
           </form>
         </div>
       )}
