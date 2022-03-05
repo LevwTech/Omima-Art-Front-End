@@ -16,8 +16,7 @@ import Shipping from "../../Pages/Shipping/Shipping";
 
 function GalleryItem() {
   const [showShipping, setShowShipping] = useState(false);
-  const { loginWithRedirect, logout, isAuthenticated, user, isLoading } =
-    useAuth0();
+  const { user } = useAuth0();
   const [isAdmin, setIsAdmin] = useState(false);
   const { id } = useParams();
   const [painting, setPainting] = useState({});

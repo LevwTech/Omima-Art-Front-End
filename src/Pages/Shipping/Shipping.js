@@ -258,7 +258,7 @@ function Shipping(props) {
         <input required type="text" id="city" placeholder="Your city.." />
         <label htmlFor="adress">Adress</label>
         <input required type="text" id="adress" placeholder="Your adress.." />
-        <label htmlFor="phone">Phone</label>
+        <label htmlFor="phone">Phone (with Country Code)</label>
         <input
           required
           type="tel"

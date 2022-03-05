@@ -9,7 +9,7 @@ import Skeleton from "@mui/material/Skeleton";
 function Collection() {
   const [collection, setCollection] = useState([]);
   const [show, setShow] = useState(false);
-  const { loginWithRedirect, isAuthenticated, user, isLoading } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, user } = useAuth0();
 
   useEffect(() => {
     if (!isAuthenticated) {

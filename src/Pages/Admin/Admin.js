@@ -3,6 +3,9 @@ import HeaderTitle from "../../Components/HeaderTitle/HeaderTitle";
 import classes from "./Admin.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
+import Orders from "../../Components/Orders/Orders";
+import PrevOrders from "../../Components/PrevOrders/PrevOrders";
 
 function Admin() {
   let navigate = useNavigate();
@@ -19,6 +22,8 @@ function Admin() {
   const [id2, setId2] = useState("");
   const [id3, setId3] = useState("");
   const [newPrice, setNewPrice] = useState("");
+  const [showOrders, setShowOrders] = useState(false);
+  const [showPrevOrders, setShowPrevOrders] = useState(false);
   function onChangeHandler(e) {
     setId(e.target.value);
   }
@@ -51,102 +56,157 @@ function Admin() {
       }
     );
   }
-
+  function onClickOrderBtnHandler() {
+    setShowOrders((showOrders) => !showOrders);
+  }
+  function onClickPrevOrderBtnHandler() {
+    setShowPrevOrders((showPrevOrders) => !showPrevOrders);
+  }
   return (
     <React.Fragment>
-      <HeaderTitle title="Create Painting" />
+      {!showPrevOrders && (
+        <div className={classes.ordersBtn}>
+          <Button
+            variant="contained"
+            size="large"
+            onClick={onClickOrderBtnHandler}
+            color="success"
+          >
+            {showOrders ? "Back to Admin" : "New Orders"}
+          </Button>
+        </div>
+      )}
+      {!showOrders && (
+        <div className={classes.ordersBtn}>
+          <Button
+            variant="contained"
+            size="large"
+            onClick={onClickPrevOrderBtnHandler}
+            color="secondary"
+          >
+            {showPrevOrders ? "Back to Admin" : "Previous Orders"}
+          </Button>
+        </div>
+      )}
+      {!showOrders && !showPrevOrders && (
+        <div>
+          <HeaderTitle title="Create Painting" />
+          <form
+            className={classes.form}
+            encType="multipart/form-data"
+            method="post"
+            action={`${process.env.REACT_APP_SERVER_URL}/painting`}
+          >
+            <label htmlFor="title">Title</label>
+            <input id="title" required type="text" name="title"></input>
 
-      <form
-        className={classes.form}
-        encType="multipart/form-data"
-        method="post"
-        action={`${process.env.REACT_APP_SERVER_URL}/painting`}
-      >
-        <label htmlFor="title">Title</label>
-        <input id="title" required type="text" name="title"></input>
+            <label htmlFor="desc">Description</label>
+            <input id="desc" required type="text" name="desc"></input>
 
-        <label htmlFor="desc">Description</label>
-        <input id="desc" required type="text" name="desc"></input>
+            <label htmlFor="price">Price</label>
+            <input id="price" required type="number" name="price"></input>
 
-        <label htmlFor="price">Price</label>
-        <input id="price" required type="number" name="price"></input>
+            <label htmlFor="images">Images</label>
+            <input
+              id="images"
+              required
+              type="file"
+              multiple
+              name="images"
+            ></input>
 
-        <label htmlFor="images">Images</label>
-        <input id="images" required type="file" multiple name="images"></input>
+            <input type="submit" value="submit"></input>
+          </form>
+          <hr
+            style={{ borderBottom: "2px black solid", marginTop: "30px" }}
+          ></hr>
+          <HeaderTitle title="Create Exhibition" />
+          <form
+            className={classes.form}
+            encType="multipart/form-data"
+            method="post"
+            action={`${process.env.REACT_APP_SERVER_URL}/exhibition`}
+          >
+            <label htmlFor="title">Title</label>
+            <input id="title" required type="text" name="title"></input>
 
-        <input type="submit" value="submit"></input>
-      </form>
+            <label htmlFor="desc">Description</label>
+            <input id="desc" required type="text" name="desc"></input>
 
-      <hr style={{ borderBottom: "2px black solid", marginTop: "30px" }}></hr>
-      <HeaderTitle title="Create Exhibition" />
-      <form
-        className={classes.form}
-        encType="multipart/form-data"
-        method="post"
-        action={`${process.env.REACT_APP_SERVER_URL}/exhibition`}
-      >
-        <label htmlFor="title">Title</label>
-        <input id="title" required type="text" name="title"></input>
+            <label htmlFor="images">Images</label>
+            <input
+              id="images"
+              required
+              type="file"
+              multiple
+              name="exhibitions"
+            ></input>
 
-        <label htmlFor="desc">Description</label>
-        <input id="desc" required type="text" name="desc"></input>
-
-        <label htmlFor="images">Images</label>
-        <input
-          id="images"
-          required
-          type="file"
-          multiple
-          name="exhibitions"
-        ></input>
-
-        <input type="submit" value="submit"></input>
-      </form>
-      <hr style={{ borderBottom: "2px black solid", marginTop: "30px" }}></hr>
-      <HeaderTitle title="Change Painting Price" />
-      <form className={classes.form}>
-        <label htmlFor="id">Id of Painting</label>
-        <input
-          id="id"
-          required
-          type="text"
-          name="id"
-          onChange={onChangeHandler3}
-        ></input>
-        <label htmlFor="price">New Price</label>
-        <input
-          id="newPrice"
-          required
-          type="number"
-          name="newPrice"
-          onChange={onChangeHandler4}
-        ></input>
-        <input type="submit" value="submit" onClick={onClickHandler3}></input>
-      </form>
-      <HeaderTitle title="Delete Painting" />
-      <form className={classes.form}>
-        <label htmlFor="id">Id of Painting</label>
-        <input
-          id="id"
-          required
-          type="text"
-          name="id"
-          onChange={onChangeHandler}
-        ></input>
-        <input type="submit" value="submit" onClick={onClickHandler}></input>
-      </form>
-      <HeaderTitle title="Delete Exhibition" />
-      <form className={classes.form}>
-        <label htmlFor="id">Id of Exhibition</label>
-        <input
-          id="id"
-          required
-          type="text"
-          name="id"
-          onChange={onChangeHandler2}
-        ></input>
-        <input type="submit" value="submit" onClick={onClickHandler2}></input>
-      </form>
+            <input type="submit" value="submit"></input>
+          </form>
+          <hr
+            style={{ borderBottom: "2px black solid", marginTop: "30px" }}
+          ></hr>
+          <HeaderTitle title="Change Painting Price" />
+          <form className={classes.form}>
+            <label htmlFor="id">Id of Painting</label>
+            <input
+              id="id"
+              required
+              type="text"
+              name="id"
+              onChange={onChangeHandler3}
+            ></input>
+            <label htmlFor="price">New Price</label>
+            <input
+              id="newPrice"
+              required
+              type="number"
+              name="newPrice"
+              onChange={onChangeHandler4}
+            ></input>
+            <input
+              type="submit"
+              value="submit"
+              onClick={onClickHandler3}
+            ></input>
+          </form>
+          <HeaderTitle title="Delete Painting" />
+          <form className={classes.form}>
+            <label htmlFor="id">Id of Painting</label>
+            <input
+              id="id"
+              required
+              type="text"
+              name="id"
+              onChange={onChangeHandler}
+            ></input>
+            <input
+              type="submit"
+              value="submit"
+              onClick={onClickHandler}
+            ></input>
+          </form>
+          <HeaderTitle title="Delete Exhibition" />
+          <form className={classes.form}>
+            <label htmlFor="id">Id of Exhibition</label>
+            <input
+              id="id"
+              required
+              type="text"
+              name="id"
+              onChange={onChangeHandler2}
+            ></input>
+            <input
+              type="submit"
+              value="submit"
+              onClick={onClickHandler2}
+            ></input>
+          </form>
+        </div>
+      )}
+      {showOrders && <Orders />}
+      {showPrevOrders && <PrevOrders />}
     </React.Fragment>
   );
 }

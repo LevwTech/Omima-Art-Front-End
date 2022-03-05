@@ -15,7 +15,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 
 function App() {
-  const { loginWithRedirect, isAuthenticated, user, isLoading } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   return (
     <React.Fragment>
       <Nav />

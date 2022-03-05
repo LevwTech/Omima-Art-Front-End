@@ -15,3 +15,7 @@ input[type="submit"] {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.ordersBtn {
+  text-align: right;
+  margin: 20px;
+}

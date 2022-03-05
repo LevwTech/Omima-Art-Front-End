@@ -1,0 +1,40 @@
+.grandparent {
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: rgb(233, 199, 238);
+  margin-top: 40px;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+@media (max-width: 900px) {
+  .grandparent {
+    flex-flow: column nowrap;
+  }
+}
+
+.parent1 {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.parent1 img {
+  width: 150px;
+  height: 150px;
+  box-shadow: 2px 2px 10px 10px rgba(136, 136, 136, 0.158);
+  border-radius: 5px;
+}
+.parent1 label {
+  font-size: 20px;
+  font-weight: bold;
+}
+.parent2 {
+  margin-top: 20px;
+  display: flex;
+  flex-flow: column wrap;
+}
+.parent2 div {
+  margin-top: 10px;
+}
