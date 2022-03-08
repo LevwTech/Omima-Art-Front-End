@@ -28,7 +28,7 @@ function Gallery() {
     );
   return (
     <div className={classes.gallery}>
-      <HeaderTitle title="Gallery" sub="Singed and unique original paintings" />
+      <HeaderTitle title="Gallery" sub="Signed and unique original paintings" />
       <div className={classes.parent}>
         {paintings.map((painting, index) => (
           <Link
