@@ -12,14 +12,14 @@ import ExhibitionEvent from "./Components/ExhibitionEvent/ExhibitionEvent";
 import Collection from "./Pages/Collection/Collection";
 import Admin from "./Pages/Admin/Admin";
 import { useAuth0 } from "@auth0/auth0-react";
-import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
+import ScrollToTop from "react-scroll-to-top";
 
 function App() {
   const { isAuthenticated } = useAuth0();
   return (
     <React.Fragment>
       <Nav />
-      <ScrollToTop></ScrollToTop>
+      <ScrollToTop smooth color="#1976d2" />
       <Routes>
         <Route path="/" element={<Gallery />} />
         <Route path="gallery" element={<Gallery />} />
