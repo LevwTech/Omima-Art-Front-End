@@ -230,7 +230,7 @@ function Shipping(props) {
         setFetched(true);
       });
   }
-  //  start
+
   useEffect(() => {
     if (!isAuthenticated) {
       return loginWithRedirect();
