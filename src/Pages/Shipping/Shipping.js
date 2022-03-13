@@ -266,7 +266,6 @@ function Shipping(props) {
       setCheckOutBtnType("success");
     }
 
-    console.log("payment front");
     fetch(`${process.env.REACT_APP_SERVER_URL}/payment`, {
       method: "POST",
       body: JSON.stringify({
