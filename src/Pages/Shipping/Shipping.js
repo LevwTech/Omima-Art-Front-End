@@ -218,8 +218,14 @@ function Shipping(props) {
 
   const [newPrice, setNewPrice] = useState(props.items[0].price);
   const [fetched, setFetched] = useState(false);
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
+  const [adress, setAdress] = useState("");
+  const [phone, setPhone] = useState("");
+  const [checkOutBtnType, setCheckOutBtnType] = useState("success");
 
   function onChangeCountryHandler(e) {
+    setCountry(e.target.value);
     setFetched(false);
     fetch(
       `https://omimaart.herokuapp.com/shippingfees/${props.items[0].price}&${e.target.value}`
@@ -230,12 +236,52 @@ function Shipping(props) {
         setFetched(true);
       });
   }
+  function onChangeCityHandler(e) {
+    setCity(e.target.value);
+  }
+  function onChangeAdressHandler(e) {
+    setAdress(e.target.value);
+  }
+  function onChangePhoneHandler(e) {
+    setPhone(e.target.value);
+  }
 
   useEffect(() => {
     if (!isAuthenticated) {
       return loginWithRedirect();
     }
   }, []);
+
+  function onClickPaymentHandler(e) {
+    e.preventDefault();
+    if (
+      country.length === 0 ||
+      city.length === 0 ||
+      adress.length === 0 ||
+      phone.length === 0
+    ) {
+      setCheckOutBtnType("error");
+      return;
+    } else {
+      setCheckOutBtnType("success");
+    }
+
+    console.log("payment front");
+    fetch(`${process.env.REACT_APP_SERVER_URL}/payment`, {
+      method: "POST",
+      body: JSON.stringify({
+        user,
+        items: { ...props.items[0], price: newPrice },
+        shipping: { country, city, adress, phone },
+      }),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then(
+        (data) =>
+          (window.location.href = `https://accept.paymob.com/api/acceptance/iframes/340283?payment_token=${data.token}`)
+      );
+  }
 
   if (!isAuthenticated)
     return (
@@ -255,9 +301,21 @@ function Shipping(props) {
           ))}
         </select>
         <label htmlFor="city">City</label>
-        <input required type="text" id="city" placeholder="Your city.." />
+        <input
+          required
+          type="text"
+          id="city"
+          placeholder="Your city.."
+          onChange={onChangeCityHandler}
+        />
         <label htmlFor="adress">Adress</label>
-        <input required type="text" id="adress" placeholder="Your adress.." />
+        <input
+          required
+          type="text"
+          id="adress"
+          placeholder="Your adress.."
+          onChange={onChangeAdressHandler}
+        />
         <label htmlFor="phone">Phone (with Country Code)</label>
         <input
           required
@@ -265,6 +323,7 @@ function Shipping(props) {
           id="phone"
           placeholder="Your phone.."
           style={{ marginBottom: "35px" }}
+          onChange={onChangePhoneHandler}
         />
 
         <div className={classes.shipcontainer}>
@@ -275,7 +334,14 @@ function Shipping(props) {
                 ${newPrice} <span>({newPrice * USD} EGP)</span>
               </div>
               <div style={{ textAlign: "center" }}>
-                <Button variant="contained" color="success" size="medium">
+                <Button
+                  variant="contained"
+                  color={checkOutBtnType}
+                  size="medium"
+                  type="submit"
+                  value="Submit"
+                  onClick={onClickPaymentHandler}
+                >
                   Checkout
                 </Button>
               </div>
