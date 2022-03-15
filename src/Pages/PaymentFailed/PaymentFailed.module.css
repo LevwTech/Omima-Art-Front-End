@@ -1,0 +1,9 @@
+.paymentfailed {
+  margin-top: 50px;
+  width: 60%;
+}
+@media (max-width: 900px) {
+  .paymentfailed {
+    width: 100%;
+  }
+}

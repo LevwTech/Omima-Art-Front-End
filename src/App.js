@@ -14,6 +14,8 @@ import Admin from "./Pages/Admin/Admin";
 import { useAuth0 } from "@auth0/auth0-react";
 import ScrollToTopFix from "./Components/ScrollToTopFix/ScrollToTopFix";
 import ScrollToTop from "react-scroll-to-top";
+import PaymentSuccessful from "./Pages/PaymentSuccessful/PaymentSuccessful";
+import PaymentFailed from "./Pages/PaymentFailed/PaymentFailed";
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -30,6 +32,8 @@ function App() {
         <Route path="exhibitions/:id" element={<ExhibitionEvent />} />
         <Route path="contact" element={<Contact />} />
         <Route path="about" element={<About />} />
+        <Route path="paymentsuccessful" element={<PaymentSuccessful />} />
+        <Route path="paymentfailed" element={<PaymentFailed />} />
         <Route path="collection" element={<Collection />} />
         {isAuthenticated && <Route path="admin" element={<Admin />} />}
         <Route path="*" element={<NoPage />} />

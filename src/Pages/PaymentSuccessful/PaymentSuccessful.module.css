@@ -1,0 +1,9 @@
+.paymentsuccessful {
+  width: 50%;
+  margin-top: -50px;
+}
+@media (max-width: 900px) {
+  .paymentsuccessful {
+    width: 100%;
+  }
+}
