@@ -8,6 +8,7 @@ function PaymentSuccessful() {
         title="Payment Successful"
         sub="Thank you for purchasing :) Your Painting Will Be Delivered To You"
       />
+
       <div style={{ display: "flex", justifyContent: "space-around" }}>
         <img
           alt="payment successful"
@@ -15,6 +16,10 @@ function PaymentSuccessful() {
           className={classes.paymentsuccessful}
         />
       </div>
+      <HeaderTitle
+        title=""
+        sub=" An email that includes the tracking number and other details will be sent to you shortly."
+      />
     </div>
   );
 }
