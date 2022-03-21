@@ -212,7 +212,7 @@ const countries = [
   "Zimbabwe",
 ];
 function Shipping(props) {
-  const USD = 15.75;
+  const USD = 18.22;
   const { loginWithRedirect, logout, isAuthenticated, user, isLoading } =
     useAuth0();
 
