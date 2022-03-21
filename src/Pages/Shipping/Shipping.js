@@ -236,7 +236,6 @@ function Shipping(props) {
         setFetched(true);
       });
   }
-
   function onChangeCityHandler(e) {
     setCity(e.target.value);
   }
