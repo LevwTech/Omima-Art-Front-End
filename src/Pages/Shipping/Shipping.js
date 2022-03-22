@@ -212,6 +212,7 @@ const countries = [
   "Zimbabwe",
 ];
 function Shipping(props) {
+  const USD = 18.22;
   const { loginWithRedirect, logout, isAuthenticated, user, isLoading } =
     useAuth0();
 
@@ -222,7 +223,7 @@ function Shipping(props) {
   const [adress, setAdress] = useState("");
   const [phone, setPhone] = useState("");
   const [checkOutBtnType, setCheckOutBtnType] = useState("success");
-  const [USD, setUSD] = useState(18);
+  // const [USD, setUSD] = useState(18);
 
   function onChangeCountryHandler(e) {
     setCountry(e.target.value);
@@ -250,11 +251,11 @@ function Shipping(props) {
     if (!isAuthenticated) {
       return loginWithRedirect();
     }
-    fetch(`${process.env.REACT_APP_SERVER_URL}/usd`)
-      .then((res) => res.json())
-      .then((data) => {
-        setUSD(Number(data.usd));
-      });
+    // fetch(`${process.env.REACT_APP_SERVER_URL}/usd`)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setUSD(Number(data.usd));
+    //   });
   }, []);
 
   function onClickPaymentHandler(e) {
