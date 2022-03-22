@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Skeleton from "@mui/material/Skeleton";
 import classes from "./Shipping.module.css";
 import Button from "@mui/material/Button";
-import axios from "axios";
+
 const countries = [
   "Afghanistan",
   "Albania",
@@ -251,11 +251,11 @@ function Shipping(props) {
     if (!isAuthenticated) {
       return loginWithRedirect();
     }
-    axios
-      .get(
-        "https://openexchangerates.org/api/latest.json/?app_id=ecce751911ee41fa81a070ffab844866&base=USD"
-      )
-      .then((res) => setUSD(Number(res.data.rates.EGP)));
+    fetch(
+      "https://openexchangerates.org/api/latest.json/?app_id=ecce751911ee41fa81a070ffab844866&base=USD"
+    )
+      .then((res) => res.json())
+      .then((resdata) => setUSD(Number(resdata.data.rates.EGP)));
   }, []);
 
   function onClickPaymentHandler(e) {
