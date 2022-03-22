@@ -223,7 +223,6 @@ function Shipping(props) {
   const [adress, setAdress] = useState("");
   const [phone, setPhone] = useState("");
   const [checkOutBtnType, setCheckOutBtnType] = useState("success");
-  // const [USD, setUSD] = useState(18);
 
   function onChangeCountryHandler(e) {
     setCountry(e.target.value);
@@ -251,11 +250,6 @@ function Shipping(props) {
     if (!isAuthenticated) {
       return loginWithRedirect();
     }
-    // fetch(`${process.env.REACT_APP_SERVER_URL}/usd`)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setUSD(Number(data.usd));
-    //   });
   }, []);
 
   function onClickPaymentHandler(e) {
@@ -336,7 +330,7 @@ function Shipping(props) {
             <div className={classes.CheckOut}>
               <div>Total price with shipping</div>
               <div className={classes.finalPrice}>
-                ${newPrice} <span>({Math.round(newPrice * USD)} EGP)</span>
+                ${newPrice} <span>({newPrice * USD} EGP)</span>
               </div>
               <div style={{ textAlign: "center" }}>
                 <Button
