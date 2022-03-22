@@ -4,6 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Skeleton from "@mui/material/Skeleton";
 import classes from "./Shipping.module.css";
 import Button from "@mui/material/Button";
+import axios from "axios";
 const countries = [
   "Afghanistan",
   "Albania",
@@ -212,7 +213,6 @@ const countries = [
   "Zimbabwe",
 ];
 function Shipping(props) {
-  const USD = 18.5;
   const { loginWithRedirect, logout, isAuthenticated, user, isLoading } =
     useAuth0();
 
@@ -223,6 +223,7 @@ function Shipping(props) {
   const [adress, setAdress] = useState("");
   const [phone, setPhone] = useState("");
   const [checkOutBtnType, setCheckOutBtnType] = useState("success");
+  const [USD, setUSD] = useState(18);
 
   function onChangeCountryHandler(e) {
     setCountry(e.target.value);
@@ -250,6 +251,11 @@ function Shipping(props) {
     if (!isAuthenticated) {
       return loginWithRedirect();
     }
+    axios
+      .get(
+        "https://openexchangerates.org/api/latest.json/?app_id=ecce751911ee41fa81a070ffab844866&base=USD"
+      )
+      .then((res) => setUSD(Number(res.data.rates.EGP)));
   }, []);
 
   function onClickPaymentHandler(e) {
