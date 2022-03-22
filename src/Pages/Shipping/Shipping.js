@@ -330,7 +330,7 @@ function Shipping(props) {
             <div className={classes.CheckOut}>
               <div>Total price with shipping</div>
               <div className={classes.finalPrice}>
-                ${newPrice} <span>({newPrice * USD} EGP)</span>
+                ${newPrice} <span>({Math.round(newPrice * USD)} EGP)</span>
               </div>
               <div style={{ textAlign: "center" }}>
                 <Button
