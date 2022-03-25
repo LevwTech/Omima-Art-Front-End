@@ -54,7 +54,15 @@ input[type="submit"]:hover {
   font-family: "Roboto", sans-serif;
   margin-bottom: 30px;
 }
+
 .send {
   font-size: 25px;
   margin-bottom: 25px;
+  text-align: center;
+}
+
+@media (max-width: 300px) {
+  .finalPrice {
+    font-size: 18px;
+  }
 }

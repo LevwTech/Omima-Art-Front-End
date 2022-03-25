@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Changa&display=swap");
-form {
-  width: 70%;
+.form {
+  width: 80%;
   margin: auto;
   font-family: "Roboto", sans-serif;
 }
