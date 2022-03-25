@@ -38,7 +38,12 @@
 .buybtn {
   margin-top: 50px;
   text-align: center;
-  margin-bottom: 1000px;
+  margin-bottom: 900px;
+}
+@media (max-width: 500px) {
+  .buybtn {
+    margin-bottom: 350px;
+  }
 }
 
 .collection {
