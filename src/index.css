@@ -5,3 +5,10 @@ body {
   height: 100%;
   background-color: #fff6ee;
 }
+@media (min-width: 2200px) {
+  html,
+  body {
+    position: relative;
+    min-height: 100vh;
+  }
+}

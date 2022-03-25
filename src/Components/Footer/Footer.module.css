@@ -6,6 +6,15 @@
   font-family: "Roboto", sans-serif;
   color: white;
 }
+.footercontainer {
+}
+@media (min-width: 2200px) {
+  .footercontainer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}
 @media (max-width: 900px) {
   .footer {
     flex-flow: column nowrap;
