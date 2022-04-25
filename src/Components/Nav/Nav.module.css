@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Allura&family=Cinzel&family=Cookie&family=Redressed&family=Satisfy&display=swap");
 .logo {
   color: black;
-  font-weight: bold !important;
+  /* font-weight: bold !important; */
   font-family: "Cookie", cursive !important;
   font-size: 40px !important;
 }
