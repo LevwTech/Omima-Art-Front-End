@@ -1,55 +1,69 @@
-import React, { useState, useEffect } from "react";
 import HeaderTitle from "../../Components/HeaderTitle/HeaderTitle";
 import classes from "./Gallery.module.css";
 import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
-import Skeleton from "@mui/material/Skeleton";
 
 function Gallery() {
-  const [paintings, setPaintings] = useState([]);
-  const [skip, setSkip] = useState(0);
-  const [show, setShow] = useState(false);
-  function loadPaintings() {
-    fetch(`${process.env.REACT_APP_SERVER_URL}/paintings?skip=${skip}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setPaintings((paintings) => [...paintings, ...data]);
-        setShow(true);
-      });
-    setSkip((skip) => skip + 10);
-  }
-
-  useEffect(() => {
-    loadPaintings();
-  }, []);
-  if (!show)
-    return (
-      <Skeleton sx={{ height: 600 }} animation="wave" variant="rectangular" />
-    );
   return (
     <div className={classes.gallery}>
-      <HeaderTitle title="Gallery" sub="Signed and unique original paintings" />
-      <div className={classes.parent}>
-        {paintings.map((painting, index) => (
-          <Link
-            key={index}
-            to={`/gallery/${painting._id}`}
-            style={{ textDecoration: "inherit", color: "inherit" }}
-            className={classes.child}
-          >
-            <img src={painting.images[0]} alt={painting.title} />
-            <div className={classes.pName}>{painting.title}</div>
-            <div className={classes.price}>
-              {painting.price === 0 ? `SOLD` : `$${painting.price}`}
-            </div>
-          </Link>
-        ))}
+      <HeaderTitle
+        title="Categories"
+        sub="Signed and Unique Original Paintings Gallery"
+      />
+
+      <div className={classes.parent} style={{ marginTop: "10px" }}>
+        <Link
+          to="/floral"
+          style={{
+            textDecoration: "inherit",
+            color: "inherit",
+            width: "260px",
+            height: "260px",
+          }}
+          className={`${classes.child} ${classes.img1}`}
+        >
+          <div>Floral</div>
+        </Link>
+
+        <Link
+          to="/landscape"
+          style={{
+            textDecoration: "inherit",
+            color: "inherit",
+            width: "260px",
+            height: "260px",
+          }}
+          className={`${classes.child} ${classes.img2}`}
+        >
+          <div>Landscape</div>
+        </Link>
+
+        <Link
+          to="/abstract"
+          style={{
+            textDecoration: "inherit",
+            color: "inherit",
+            width: "260px",
+            height: "260px",
+          }}
+          className={`${classes.child} ${classes.img3}`}
+        >
+          <div>Abstract</div>
+        </Link>
+
+        <Link
+          to="/paper"
+          style={{
+            textDecoration: "inherit",
+            color: "inherit",
+            width: "260px",
+            height: "260px",
+          }}
+          className={`${classes.child} ${classes.img4}`}
+        >
+          <div>Paper</div>
+        </Link>
       </div>
-      <div className={classes.seeMoreBtn}>
-        <Button size="large" variant="contained" onClick={loadPaintings}>
-          Load More
-        </Button>
-      </div>
+      <div style={{ marginBottom: "100px" }}></div>
     </div>
   );
 }

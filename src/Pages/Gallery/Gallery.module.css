@@ -16,32 +16,45 @@
   margin: 20px;
   transition-duration: 200ms;
   box-shadow: 2px 2px 10px 10px rgba(136, 136, 136, 0.158);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .child:hover {
-  background-color: #dce4e8;
+  padding: 10px;
 }
 .child img {
-  margin: 10px;
   width: 260px;
   height: 260px;
   box-shadow: 1px 1px 5px 2px #07030541;
 }
-.pName {
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
-  font-size: 20px;
-  margin: 5px;
-  text-align: center;
+.img1 {
+  background-image: url("../../Assets/category/floral.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
-.price {
-  font-family: "Changa", sans-serif;
-  font-size: 17px;
-  margin-bottom: 5px;
-  text-align: center;
+.img2 {
+  background-image: url("../../Assets/category/landscape.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
-.seeMoreBtn {
-  width: 30%;
-  margin: auto;
-  text-align: center;
-  margin-bottom: 20px;
+.img3 {
+  background-image: url("../../Assets/category/abstract.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.img4 {
+  background-image: url("../../Assets/category/paper.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.child div {
+  font-size: 32px;
+  font-weight: bolder;
+  color: white;
+  text-shadow: black 4px 4px 3px;
 }

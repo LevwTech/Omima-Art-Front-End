@@ -106,6 +106,23 @@ function Admin() {
             <label htmlFor="price">Price</label>
             <input id="price" required type="number" name="price"></input>
 
+            <label htmlFor="category">Category</label>
+            <select id="category" required name="category">
+              <option value=""></option>
+              <option value="floral" name="category">
+                Floral
+              </option>
+              <option value="landscape" name="category">
+                Landscape
+              </option>
+              <option value="abstract" name="category">
+                Abstract
+              </option>
+              <option value="paper" name="category">
+                Paper
+              </option>
+            </select>
+
             <label htmlFor="images">Images</label>
             <input
               id="images"
