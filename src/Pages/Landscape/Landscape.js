@@ -25,7 +25,7 @@ function Landscape() {
   if (!show)
     return (
       <div className={classes.gallery}>
-        <HeaderTitle title="Floral" sub="" />
+        <HeaderTitle title="Landscape" sub="" />
         <div className={classes.parent}>
           <div
             style={{ textDecoration: "inherit", color: "inherit" }}
@@ -37,14 +37,12 @@ function Landscape() {
               animation="wave"
               variant="rectangular"
             />
-            {/* <div style={{ marginTop: "30px" }}></div> */}
             <Skeleton
               className={classes.child}
               sx={{ height: 260, width: 260 }}
               animation="wave"
               variant="rectangular"
             />
-            {/* <div style={{ marginTop: "30px" }}></div> */}
             <Skeleton
               className={classes.child}
               sx={{ height: 260, width: 260 }}

@@ -25,7 +25,7 @@ function Paper() {
   if (!show)
     return (
       <div className={classes.gallery}>
-        <HeaderTitle title="Floral" sub="" />
+        <HeaderTitle title="Paper" sub="" />
         <div className={classes.parent}>
           <div
             style={{ textDecoration: "inherit", color: "inherit" }}
