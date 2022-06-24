@@ -73,7 +73,7 @@ function Landscape() {
         ))}
       </div>
       <div className={classes.seeMoreBtn}>
-        <Button size="large" variant="contained" onClick={loadPaintings}>
+        <Button size="large" variant="contained" onClick={loadPaintings} style={{ background: '#dcecf3', color:'#494848', fontWeight:'bold' }}>
           Load More
         </Button>
       </div>

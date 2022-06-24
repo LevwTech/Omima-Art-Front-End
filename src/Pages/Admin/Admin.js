@@ -134,10 +134,10 @@ function Admin() {
             <div style={{ textAlign: "center", marginTop: "10px" }}>
               <Button
                 variant="contained"
-                color="success"
                 type="submit"
                 value="Submit"
                 size="medium"
+                style={{ textDecoration: "none", color: '#494848', backgroundColor:"#42f5a4", fontWeight:"bold"}}
               >
                 Submit
               </Button>
@@ -170,10 +170,10 @@ function Admin() {
             <div style={{ textAlign: "center", marginTop: "10px" }}>
               <Button
                 variant="contained"
-                color="success"
                 type="submit"
                 value="Submit"
                 size="medium"
+                style={{ textDecoration: "none", color: '#494848', backgroundColor:"#42f5a4", fontWeight:"bold"}}
               >
                 Submit
               </Button>
@@ -203,11 +203,11 @@ function Admin() {
             <div style={{ textAlign: "center", marginTop: "10px" }}>
               <Button
                 variant="contained"
-                color="success"
                 type="submit"
                 value="Submit"
                 size="medium"
                 onClick={onClickHandler3}
+                style={{ textDecoration: "none", color: '#494848', backgroundColor:"#42f5a4", fontWeight:"bold"}}
               >
                 Submit
               </Button>
@@ -229,11 +229,11 @@ function Admin() {
             <div style={{ textAlign: "center", marginTop: "10px" }}>
               <Button
                 variant="contained"
-                color="success"
                 type="submit"
                 value="Submit"
                 size="medium"
                 onClick={onClickHandler}
+                style={{ textDecoration: "none", color: '#494848', backgroundColor:"#42f5a4", fontWeight:"bold"}}
               >
                 Submit
               </Button>
@@ -261,11 +261,11 @@ function Admin() {
             >
               <Button
                 variant="contained"
-                color="success"
                 type="submit"
                 value="Submit"
                 size="medium"
                 onClick={onClickHandler2}
+                style={{ textDecoration: "none", color: '#494848', backgroundColor:"#42f5a4", fontWeight:"bold"}}
               >
                 Submit
               </Button>

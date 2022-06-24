@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Changa&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
 .gallery {
   display: block;
   height: 10%;
@@ -27,17 +27,21 @@
   box-shadow: 1px 1px 5px 2px #07030541;
 }
 .pName {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 22px;
   margin: 5px;
   text-align: center;
 }
 .price {
-  font-family: "Changa", sans-serif;
-  font-size: 17px;
-  margin-bottom: 5px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 15px;
+  margin-bottom: 12px;
   text-align: center;
+  margin-top: 12px;
+  color:#494848;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 .seeMoreBtn {
   width: 30%;

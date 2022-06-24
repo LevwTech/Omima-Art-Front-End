@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
 .footer {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  background-color: #1976d2;
-  font-family: "Roboto", sans-serif;
-  color: white;
+  background-color: #dcecf3;
+  font-family: 'Josefin Sans', sans-serif;
+  color: rgb(73, 72, 72);
 }
 
 @media (max-width: 900px) {
@@ -24,10 +25,10 @@
   }
 }
 .rights {
-  background-color: #1976d2;
-  color: white;
+  background-color: #dcecf3;
+  color: #494848;
   text-align: center;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   height: 60px;
   display: flex;
   justify-content: center;
@@ -46,8 +47,15 @@
   opacity: 0.6;
 }
 .section img {
+  opacity: 0.8;
+}
+.section img {
   height: 50px;
   width: 50px;
   margin-right: 10px;
   cursor: pointer;
+}
+.footer h1 {
+  font-size: 32px;
+  font-weight: normal
 }

@@ -57,7 +57,7 @@ function ExhibitionEvent() {
       )}
       <div className={classes.backBtn}>
         <Link to="/exhibitions" style={{ textDecoration: "none" }}>
-          <Button variant="contained" size="large">
+          <Button variant="contained" size="large" style={{ background: '#dcecf3', color:'#494848', fontWeight:'bold' }}>
             back to exhibitions
           </Button>
         </Link>

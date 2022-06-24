@@ -58,7 +58,7 @@ function Collection() {
           </div>
           <div className={classes.buybtn}>
             <Link to="/gallery" style={{ textDecoration: "none" }}>
-              <Button variant="contained" size="large">
+              <Button variant="contained" size="large" style= {{color: '#494848', backgroundColor:"#dcecf3", fontWeight:"bold"}}>
                 Start Buying
               </Button>
             </Link>

@@ -222,7 +222,7 @@ function Shipping(props) {
   const [city, setCity] = useState("");
   const [adress, setAdress] = useState("");
   const [phone, setPhone] = useState("");
-  const [checkOutBtnType, setCheckOutBtnType] = useState("success");
+  const [checkOutBtnType, setCheckOutBtnType] = useState({ textDecoration: "none", color: '#494848', backgroundColor:"#42f5a4", fontWeight:"bold"});
 
   function onChangeCountryHandler(e) {
     setCountry(e.target.value);
@@ -260,10 +260,10 @@ function Shipping(props) {
       adress.length === 0 ||
       phone.length === 0
     ) {
-      setCheckOutBtnType("error");
+      setCheckOutBtnType({ textDecoration: "none", color: '#494848', backgroundColor:"#ed8585", fontWeight:"bold"});
       return;
     } else {
-      setCheckOutBtnType("success");
+      setCheckOutBtnType({ textDecoration: "none", color: '#494848', backgroundColor:"#42f5a4", fontWeight:"bold"});
     }
 
     fetch(`${process.env.REACT_APP_SERVER_URL}/payment`, {
@@ -335,11 +335,11 @@ function Shipping(props) {
               <div style={{ textAlign: "center" }}>
                 <Button
                   variant="contained"
-                  color={checkOutBtnType}
                   size="medium"
                   type="submit"
                   value="Submit"
                   onClick={onClickPaymentHandler}
+                  style={checkOutBtnType}
                 >
                   Checkout
                 </Button>

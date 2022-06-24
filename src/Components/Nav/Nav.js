@@ -52,7 +52,7 @@ const Nav = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ background: '#dcecf3'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -98,10 +98,11 @@ const Nav = () => {
                 <Link
                   key={index}
                   to={page.toLowerCase() === "home" ? "/" : page.toLowerCase()}
-                  style={{ textDecoration: "none", color: "#4a4a4a" }}
+                  style={{ textDecoration: "none"}}
+                  
                 >
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
+                    <Typography textAlign="center" style={{ textDecoration: "none", color: 'rgb(73, 72, 72)' }}>{page}</Typography>
                   </MenuItem>
                 </Link>
               ))}
@@ -122,12 +123,13 @@ const Nav = () => {
               <Link
                 key={index}
                 to={page.toLowerCase() === "home" ? "/" : page.toLowerCase()}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none"}}
               >
                 <Button
                   key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
+                  style={{ textDecoration: "none", color: 'rgb(73, 72, 72)' }}
                 >
                   {page}
                 </Button>

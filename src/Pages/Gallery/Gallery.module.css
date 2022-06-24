@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Changa&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
 .gallery {
   display: block;
   height: 10%;
@@ -54,7 +54,8 @@
 }
 .child div {
   font-size: 32px;
-  font-weight: bolder;
   color: white;
   text-shadow: black 4px 4px 3px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold
 }

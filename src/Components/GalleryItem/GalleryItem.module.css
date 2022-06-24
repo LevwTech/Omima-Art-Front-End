@@ -1,15 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Changa&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
 .buyInfo {
   display: flex;
   flex-direction: row;
   width: 30%;
   margin: auto;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 20px;
   margin-bottom: 30px;
   box-shadow: 2px 2px 10px 2px rgba(136, 136, 136, 0.336);
   height: 50px;
-  align-items: center;
 }
 @media (max-width: 900px) {
   .buyInfo {
@@ -19,29 +18,26 @@
 
 .buyBtn {
   font-family: "Roboto", sans-serif;
-  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #1976d2);
-  height: 40px;
-  width: 40%;
-  border-radius: 10px;
-  color: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 15px 30px -5px;
+  background-image: linear-gradient(144deg, #a8f0e2, #a8daf0 50%, #dcecf3); 
+  width: 60%;
+  color: black;
   font-size: 17px;
   font-weight: bold;
-  border: 2px white solid;
+  border: 0px white solid;
   transition-duration: 500ms;
 }
-@media (max-width: 900px) {
-  .buyBtn {
-    height: 50px;
-    width: 50%;
-  }
-}
 .buyBtn:hover {
-  border: 3px #0c274d solid;
+  border: 2px #494848 solid;
 }
 .price {
+  width: 40%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 22px;
-  font-family: "Changa", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 .backBtn {
   margin-top: 50px;

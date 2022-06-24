@@ -68,10 +68,10 @@ function Contact() {
           ></textarea>
           <Button
             variant="contained"
-            color="success"
             type="submit"
             value="Submit"
             size="large"
+            style={{ textDecoration: "none", color: '#494848', backgroundColor:"#dcecf3", fontWeight:"bold"}}
           >
             Submit
           </Button>

@@ -61,9 +61,9 @@ function Exhibitions() {
               />
               <Link
                 to={`/exhibitions/${exh._id}`}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", color: '#494848'}}
               >
-                <Button size="small">Learn More</Button>
+                <Button size="small" style={{ color: '#494848'}}>Learn More</Button>
               </Link>
             </CardActions>
           </Card>

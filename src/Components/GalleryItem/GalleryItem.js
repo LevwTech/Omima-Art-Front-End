@@ -56,7 +56,7 @@ function GalleryItem() {
         <div>
           <HeaderTitle title={painting.title} sub={painting.desc} />
           <div className={classes.buyInfo}>
-            <div className={classes.price}>
+            <div className={classes.price} style={painting.price===0? {width:"100%"} : {}} >
               {painting.price === 0 ? `SOLD` : `$${painting.price}`}
             </div>
             {painting.price !== 0 && (
@@ -67,12 +67,12 @@ function GalleryItem() {
             {isAdmin && (
               <CopyToClipboard text={id} onCopy={() => setCopy(true)}>
                 {copy ? (
-                  <Button variant="contained" size="small" color="success">
+                  <Button variant="contained" size="small" style={{ textDecoration: "none", color: '#494848', backgroundColor:"#42f5a4", fontWeight:"bold"}} >
                     Copied
                   </Button>
                 ) : (
-                  <Button variant="contained" size="small">
-                    Copy ID
+                  <Button variant="contained" size="small"  style={{ textDecoration: "none", color: '#494848', backgroundColor:"#dcecf3", fontWeight:"bold"}}>
+                    Copy
                   </Button>
                 )}
               </CopyToClipboard>
@@ -106,7 +106,7 @@ function GalleryItem() {
           )}
           <div className={classes.backBtn}>
             <Link to="/gallery" style={{ textDecoration: "none" }}>
-              <Button variant="contained" size="large">
+              <Button variant="contained" size="large"  style={{ textDecoration: "none", color: '#494848', backgroundColor:"#dcecf3", fontWeight:"bold"}}>
                 back to gallery
               </Button>
             </Link>

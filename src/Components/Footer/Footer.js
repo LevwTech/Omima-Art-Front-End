@@ -12,24 +12,24 @@ function Footer() {
         <div className={classes.section}>
           <h1>Menu</h1>
 
-          <Link to="/" style={{ textDecoration: "none", color: "#ffffff" }}>
+          <Link to="/" style={{ textDecoration: "none", color: "rgb(73, 72, 72)" }}>
             <div>Gallery</div>
           </Link>
           <Link
             to="/exhibitions"
-            style={{ textDecoration: "none", color: "#ffffff" }}
+            style={{ textDecoration: "none", color: "rgb(73, 72, 72)" }}
           >
             <div>Exhibitions</div>
           </Link>
           <Link
             to="/contact"
-            style={{ textDecoration: "none", color: "#ffffff" }}
+            style={{ textDecoration: "none", color: "rgb(73, 72, 72)" }}
           >
             <div>Contact</div>
           </Link>
           <Link
             to="/about"
-            style={{ textDecoration: "none", color: "#ffffff" }}
+            style={{ textDecoration: "none", color: "rgb(73, 72, 72)" }}
           >
             <div>About</div>
           </Link>

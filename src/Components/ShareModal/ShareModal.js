@@ -43,7 +43,7 @@ export default function ShareModal(props) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Share</Button>
+      <Button style={{ color: '#494848'}} onClick={handleOpen}>Share</Button>
       <Modal
         open={open}
         onClose={handleClose}
