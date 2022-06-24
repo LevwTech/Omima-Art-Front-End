@@ -21,6 +21,7 @@ function Admin() {
   const [id, setId] = useState("");
   const [id2, setId2] = useState("");
   const [id3, setId3] = useState("");
+  const [id5, setId5] = useState("");
   const [newPrice, setNewPrice] = useState("");
   const [showOrders, setShowOrders] = useState(false);
   const [showPrevOrders, setShowPrevOrders] = useState(false);
@@ -36,6 +37,10 @@ function Admin() {
   function onChangeHandler4(e) {
     setNewPrice(e.target.value);
   }
+  function onChangeHandler5(e) {
+    setId5(e.target.value);
+  }
+  
   function onClickHandler(e) {
     e.preventDefault();
     fetch(`${process.env.REACT_APP_SERVER_URL}/delete/${id}`).then((data) => {
@@ -55,6 +60,12 @@ function Admin() {
         console.log(data);
       }
     );
+  }
+  function onClickHandler5(e) {
+    e.preventDefault();
+    fetch(`${process.env.REACT_APP_SERVER_URL}/sold/${id5}`).then((data) => {
+      console.log(data);
+    });
   }
   function onClickOrderBtnHandler() {
     setShowOrders((showOrders) => !showOrders);
@@ -216,6 +227,34 @@ function Admin() {
           <hr
             style={{ borderBottom: "2px black solid", marginTop: "30px" }}
           ></hr>
+
+        <HeaderTitle title="Make Sold" />
+          <form className={classes.form}>
+            <label htmlFor="id">Id of Painting</label>
+            <input
+              id="id"
+              required
+              type="text"
+              name="id"
+              onChange={onChangeHandler5}
+            ></input>
+            <div style={{ textAlign: "center", marginTop: "10px" }}>
+              <Button
+                variant="contained"
+                type="submit"
+                value="Submit"
+                size="medium"
+                onClick={onClickHandler5}
+                style={{ textDecoration: "none", color: '#494848', backgroundColor:"#42f5a4", fontWeight:"bold"}}
+              >
+                Submit
+              </Button>
+            </div>
+          </form>
+          <hr
+            style={{ borderBottom: "2px black solid", marginTop: "30px" }}
+          ></hr>
+
           <HeaderTitle title="Delete Painting" />
           <form className={classes.form}>
             <label htmlFor="id">Id of Painting</label>
