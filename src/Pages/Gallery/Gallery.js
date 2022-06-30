@@ -63,7 +63,7 @@ function Gallery() {
           <div>Paper</div>
         </Link>
       </div>
-      <div style={{ marginBottom: "100px" }}></div>
+      <div style={{ marginBottom: "300px" }}></div>
     </div>
   );
 }
