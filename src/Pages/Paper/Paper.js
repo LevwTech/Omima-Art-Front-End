@@ -66,14 +66,23 @@ function Paper() {
           >
             <img src={painting.images[0]} alt={painting.title} />
             <div className={classes.pName}>{painting.title}</div>
-            <div className={classes.price}>
+            {/* <div className={classes.price}>
               {painting.price === 0 ? `SOLD` : `$${painting.price}`}
-            </div>
+            </div> */}
           </Link>
         ))}
       </div>
       <div className={classes.seeMoreBtn}>
-        <Button size="large" variant="contained" onClick={loadPaintings} style={{ background: '#dcecf3', color:'#494848', fontWeight:'bold' }}>
+        <Button
+          size="large"
+          variant="contained"
+          onClick={loadPaintings}
+          style={{
+            background: "#dcecf3",
+            color: "#494848",
+            fontWeight: "bold",
+          }}
+        >
           Load More
         </Button>
       </div>
