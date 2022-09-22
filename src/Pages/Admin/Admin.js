@@ -40,30 +40,36 @@ function Admin() {
   function onChangeHandler5(e) {
     setId5(e.target.value);
   }
-  
+
   function onClickHandler(e) {
     e.preventDefault();
-    fetch(`${process.env.REACT_APP_SERVER_URL}/delete/${id}`).then((data) => {
+    fetch(
+      `${process.env.REACT_APP_SERVER_URL}/delete/${id}&${process.env.REACT_APP_ADMIN_PW}`
+    ).then((data) => {
       console.log(data);
     });
   }
   function onClickHandler2(e) {
     e.preventDefault();
-    fetch(`${process.env.REACT_APP_SERVER_URL}/Edelete/${id2}`).then((data) => {
+    fetch(
+      `${process.env.REACT_APP_SERVER_URL}/Edelete/${id2}&${process.env.REACT_APP_ADMIN_PW}`
+    ).then((data) => {
       console.log(data);
     });
   }
   function onClickHandler3(e) {
     e.preventDefault();
-    fetch(`${process.env.REACT_APP_SERVER_URL}/price/${id3}&${newPrice}`).then(
-      (data) => {
-        console.log(data);
-      }
-    );
+    fetch(
+      `${process.env.REACT_APP_SERVER_URL}/price/${id3}&${newPrice}&${process.env.REACT_APP_ADMIN_PW}`
+    ).then((data) => {
+      console.log(data);
+    });
   }
   function onClickHandler5(e) {
     e.preventDefault();
-    fetch(`${process.env.REACT_APP_SERVER_URL}/sold/${id5}`).then((data) => {
+    fetch(
+      `${process.env.REACT_APP_SERVER_URL}/sold/${id5}&${process.env.REACT_APP_ADMIN_PW}`
+    ).then((data) => {
       console.log(data);
     });
   }
@@ -108,6 +114,11 @@ function Admin() {
             method="post"
             action={`${process.env.REACT_APP_SERVER_URL}/painting`}
           >
+            <input
+              type="hidden"
+              name="password"
+              value={process.env.REACT_APP_ADMIN_PW}
+            ></input>
             <label htmlFor="title">Title</label>
             <input id="title" required type="text" name="title"></input>
 
@@ -148,7 +159,12 @@ function Admin() {
                 type="submit"
                 value="Submit"
                 size="medium"
-                style={{ textDecoration: "none", color: '#494848', backgroundColor:"#42f5a4", fontWeight:"bold"}}
+                style={{
+                  textDecoration: "none",
+                  color: "#494848",
+                  backgroundColor: "#42f5a4",
+                  fontWeight: "bold",
+                }}
               >
                 Submit
               </Button>
@@ -164,6 +180,11 @@ function Admin() {
             method="post"
             action={`${process.env.REACT_APP_SERVER_URL}/exhibition`}
           >
+            <input
+              type="hidden"
+              name="password"
+              value={process.env.REACT_APP_ADMIN_PW}
+            ></input>
             <label htmlFor="title">Title</label>
             <input id="title" required type="text" name="title"></input>
 
@@ -184,7 +205,12 @@ function Admin() {
                 type="submit"
                 value="Submit"
                 size="medium"
-                style={{ textDecoration: "none", color: '#494848', backgroundColor:"#42f5a4", fontWeight:"bold"}}
+                style={{
+                  textDecoration: "none",
+                  color: "#494848",
+                  backgroundColor: "#42f5a4",
+                  fontWeight: "bold",
+                }}
               >
                 Submit
               </Button>
@@ -218,7 +244,12 @@ function Admin() {
                 value="Submit"
                 size="medium"
                 onClick={onClickHandler3}
-                style={{ textDecoration: "none", color: '#494848', backgroundColor:"#42f5a4", fontWeight:"bold"}}
+                style={{
+                  textDecoration: "none",
+                  color: "#494848",
+                  backgroundColor: "#42f5a4",
+                  fontWeight: "bold",
+                }}
               >
                 Submit
               </Button>
@@ -228,7 +259,7 @@ function Admin() {
             style={{ borderBottom: "2px black solid", marginTop: "30px" }}
           ></hr>
 
-        <HeaderTitle title="Make Sold" />
+          <HeaderTitle title="Make Sold" />
           <form className={classes.form}>
             <label htmlFor="id">Id of Painting</label>
             <input
@@ -245,7 +276,12 @@ function Admin() {
                 value="Submit"
                 size="medium"
                 onClick={onClickHandler5}
-                style={{ textDecoration: "none", color: '#494848', backgroundColor:"#42f5a4", fontWeight:"bold"}}
+                style={{
+                  textDecoration: "none",
+                  color: "#494848",
+                  backgroundColor: "#42f5a4",
+                  fontWeight: "bold",
+                }}
               >
                 Submit
               </Button>
@@ -272,7 +308,12 @@ function Admin() {
                 value="Submit"
                 size="medium"
                 onClick={onClickHandler}
-                style={{ textDecoration: "none", color: '#494848', backgroundColor:"#42f5a4", fontWeight:"bold"}}
+                style={{
+                  textDecoration: "none",
+                  color: "#494848",
+                  backgroundColor: "#42f5a4",
+                  fontWeight: "bold",
+                }}
               >
                 Submit
               </Button>
@@ -304,7 +345,12 @@ function Admin() {
                 value="Submit"
                 size="medium"
                 onClick={onClickHandler2}
-                style={{ textDecoration: "none", color: '#494848', backgroundColor:"#42f5a4", fontWeight:"bold"}}
+                style={{
+                  textDecoration: "none",
+                  color: "#494848",
+                  backgroundColor: "#42f5a4",
+                  fontWeight: "bold",
+                }}
               >
                 Submit
               </Button>
