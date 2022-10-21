@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap");
 .gallery {
   display: block;
   height: 10%;
@@ -21,7 +21,7 @@
   align-items: center;
 }
 .child:hover {
-  padding: 10px;
+  transform: scale(105%);
 }
 .child img {
   width: 260px;
@@ -56,6 +56,6 @@
   font-size: 32px;
   color: white;
   text-shadow: black 4px 4px 3px;
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: bold
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: bold;
 }
