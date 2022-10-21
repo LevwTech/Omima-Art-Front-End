@@ -4,9 +4,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 import classes from "./Shipping.module.css";
 import Button from "@mui/material/Button";
 import countriesData from "./countries.json";
+import usdData from "./usd.json";
 const countries = countriesData.countries;
+const USD = Number(usdData.usd);
 function Shipping(props) {
-  const USD = 19;
   const { isAuthenticated, user } = useAuth0();
   const [newPrice, setNewPrice] = useState(props.items[0].price);
   const [fetched, setFetched] = useState(false);
