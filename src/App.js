@@ -16,7 +16,7 @@ import ScrollToTopFix from "./Components/ScrollToTopFix/ScrollToTopFix";
 import PaymentSuccessful from "./Pages/PaymentSuccessful/PaymentSuccessful";
 import PaymentFailed from "./Pages/PaymentFailed/PaymentFailed";
 import Category from "./Pages/Category/Category";
-const categories = ["floral", "landscape", "asbtract", "paper"];
+const categories = ["floral", "landscape", "abstract", "paper"];
 function App() {
   const { isAuthenticated } = useAuth0();
   return (
