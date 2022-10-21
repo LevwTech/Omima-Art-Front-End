@@ -15,11 +15,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import ScrollToTopFix from "./Components/ScrollToTopFix/ScrollToTopFix";
 import PaymentSuccessful from "./Pages/PaymentSuccessful/PaymentSuccessful";
 import PaymentFailed from "./Pages/PaymentFailed/PaymentFailed";
-import Floral from "./Pages/Floral/Floral";
-import Landscape from "./Pages/Landscape/Landscape";
-import Abstract from "./Pages/Abstract/Abstract";
-import Paper from "./Pages/Paper/Paper";
-
+import Category from "./Pages/Category/Category";
+const categories = ["floral", "landscape", "asbtract", "paper"];
 function App() {
   const { isAuthenticated } = useAuth0();
   return (
@@ -29,10 +26,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Gallery />} />
         <Route path="gallery" element={<Gallery />} />
-        <Route path="floral" element={<Floral />} />
-        <Route path="landscape" element={<Landscape />} />
-        <Route path="abstract" element={<Abstract />} />
-        <Route path="paper" element={<Paper />} />
+        {categories.map((category) => (
+          <Route path={category} element={<Category category={category} />} />
+        ))}
         <Route path="gallery/:id" element={<GalleryItem />} />
         <Route path="exhibitions" element={<Exhibitions />} />
         <Route path="exhibitions/:id" element={<ExhibitionEvent />} />

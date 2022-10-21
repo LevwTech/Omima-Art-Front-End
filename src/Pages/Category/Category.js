@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import HeaderTitle from "../../Components/HeaderTitle/HeaderTitle";
-import classes from "./Landscape.module.css";
+import classes from "./Category.module.css";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Skeleton from "@mui/material/Skeleton";
 
-function Landscape() {
+function Category({ category }) {
   const [paintings, setPaintings] = useState([]);
   const [skip, setSkip] = useState(0);
   const [show, setShow] = useState(false);
   function loadPaintings() {
-    fetch(`${process.env.REACT_APP_SERVER_URL}/landscape?skip=${skip}`)
+    fetch(`${process.env.REACT_APP_SERVER_URL}/${category}?skip=${skip}`)
       .then((response) => response.json())
       .then((data) => {
         setPaintings((paintings) => [...paintings, ...data]);
@@ -22,10 +22,15 @@ function Landscape() {
   useEffect(() => {
     loadPaintings();
   }, []);
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   if (!show)
     return (
       <div className={classes.gallery}>
-        <HeaderTitle title="Landscape" sub="" />
+        <HeaderTitle title={capitalizeFirstLetter(category)} sub="" />
         <div className={classes.parent}>
           <div
             style={{ textDecoration: "inherit", color: "inherit" }}
@@ -37,12 +42,14 @@ function Landscape() {
               animation="wave"
               variant="rectangular"
             />
+            {/* <div style={{ marginTop: "30px" }}></div> */}
             <Skeleton
               className={classes.child}
               sx={{ height: 260, width: 260 }}
               animation="wave"
               variant="rectangular"
             />
+            {/* <div style={{ marginTop: "30px" }}></div> */}
             <Skeleton
               className={classes.child}
               sx={{ height: 260, width: 260 }}
@@ -55,7 +62,7 @@ function Landscape() {
     );
   return (
     <div className={classes.gallery}>
-      <HeaderTitle title="Landscape" sub="" />
+      <HeaderTitle title={capitalizeFirstLetter(category)} sub="" />
       <div className={classes.parent}>
         {paintings.map((painting, index) => (
           <Link
@@ -89,4 +96,4 @@ function Landscape() {
     </div>
   );
 }
-export default Landscape;
+export default Category;
