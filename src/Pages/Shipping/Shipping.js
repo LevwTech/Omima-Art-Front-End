@@ -1,22 +1,21 @@
 import HeaderTitle from "../../Components/HeaderTitle/HeaderTitle";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import Skeleton from "@mui/material/Skeleton";
 import classes from "./Shipping.module.css";
 import Button from "@mui/material/Button";
 import countriesData from "./countries.json";
 const countries = countriesData.countries;
 function Shipping(props) {
   const USD = 19;
-  const { loginWithRedirect, logout, isAuthenticated, user, isLoading } =
-    useAuth0();
-
+  const { isAuthenticated, user } = useAuth0();
   const [newPrice, setNewPrice] = useState(props.items[0].price);
   const [fetched, setFetched] = useState(false);
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [adress, setAdress] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [checkOutBtnType, setCheckOutBtnType] = useState({
     textDecoration: "none",
     color: "#494848",
@@ -45,13 +44,12 @@ function Shipping(props) {
   function onChangePhoneHandler(e) {
     setPhone(e.target.value);
   }
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-      return loginWithRedirect();
-    }
-  }, []);
-
+  function onChangeEmailHandler(e) {
+    setEmail(e.target.value);
+  }
+  function onChangeNameHandler(e) {
+    setName(e.target.value);
+  }
   function onClickPaymentHandler(e) {
     e.preventDefault();
     if (
@@ -79,7 +77,7 @@ function Shipping(props) {
     fetch(`${process.env.REACT_APP_SERVER_URL}/payment`, {
       method: "POST",
       body: JSON.stringify({
-        user,
+        user: isAuthenticated ? user : { sub: "NA", name, email },
         items: { ...props.items[0], price: newPrice },
         shipping: { country, city, adress, phone },
       }),
@@ -92,10 +90,6 @@ function Shipping(props) {
       );
   }
 
-  if (!isAuthenticated)
-    return (
-      <Skeleton sx={{ height: 600 }} animation="wave" variant="rectangular" />
-    );
   return (
     <React.Fragment>
       <HeaderTitle title="Shipping" sub="Please enter your shipping details." />
@@ -117,12 +111,34 @@ function Shipping(props) {
           placeholder="Your city.."
           onChange={onChangeCityHandler}
         />
-        <label htmlFor="adress">Adress</label>
+        {!isAuthenticated && (
+          <div>
+            <label htmlFor="email">Name</label>
+            <input
+              required
+              type="text"
+              id="name"
+              placeholder="Your Full Name.."
+              onChange={onChangeNameHandler}
+            />
+
+            <label htmlFor="email">Email</label>
+            <input
+              required
+              type="text"
+              id="email"
+              placeholder="Your Email.."
+              onChange={onChangeEmailHandler}
+            />
+          </div>
+        )}
+
+        <label htmlFor="adress">Address</label>
         <input
           required
           type="text"
           id="adress"
-          placeholder="Your adress.."
+          placeholder="Your address.."
           onChange={onChangeAdressHandler}
         />
         <label htmlFor="phone">Phone (with Country Code)</label>
