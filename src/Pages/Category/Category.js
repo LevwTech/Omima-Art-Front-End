@@ -10,7 +10,9 @@ function Category({ category }) {
   const [skip, setSkip] = useState(0);
   const [show, setShow] = useState(false);
   function loadPaintings() {
-    fetch(`${process.env.REACT_APP_SERVER_URL}/${category}?skip=${skip}`)
+    fetch(
+      `${process.env.REACT_APP_SERVER_URL}/category/${category}?skip=${skip}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setPaintings((paintings) => [...paintings, ...data]);
