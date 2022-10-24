@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap");
 .footer {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
   background-color: #dcecf3;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   color: rgb(73, 72, 72);
 }
 
@@ -28,12 +28,31 @@
   background-color: #dcecf3;
   color: #494848;
   text-align: center;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.developed {
+  background-color: #dcecf3;
+  color: #494848;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
   height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 13px;
+  margin-top: -40px;
+}
+.developed a {
+  text-decoration: none;
+}
+.developed a:hover {
+  text-decoration: underline;
 }
 
 .section div {
@@ -57,5 +76,5 @@
 }
 .footer h1 {
   font-size: 32px;
-  font-weight: normal
+  font-weight: normal;
 }

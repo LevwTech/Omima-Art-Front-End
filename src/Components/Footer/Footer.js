@@ -12,7 +12,10 @@ function Footer() {
         <div className={classes.section}>
           <h1>Menu</h1>
 
-          <Link to="/" style={{ textDecoration: "none", color: "rgb(73, 72, 72)" }}>
+          <Link
+            to="/"
+            style={{ textDecoration: "none", color: "rgb(73, 72, 72)" }}
+          >
             <div>Gallery</div>
           </Link>
           <Link
@@ -54,6 +57,16 @@ function Footer() {
       </footer>
 
       <div className={classes.rights}> @ {currentYear} Omima Art Gallery</div>
+      <div className={classes.developed}>
+        developed by&nbsp;
+        <a
+          href="https://www.linkedin.com/in/levw"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Abdelrahman Mostafa
+        </a>
+      </div>
     </React.Fragment>
   );
 }
