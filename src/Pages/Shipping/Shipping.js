@@ -4,12 +4,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 import classes from "./Shipping.module.css";
 import Button from "@mui/material/Button";
 import countriesData from "./countries.json";
-import usdData from "./usd.json";
 const countries = countriesData.countries;
-const USD = Number(usdData.usd);
 function Shipping(props) {
   const { isAuthenticated, user } = useAuth0();
   const [newPrice, setNewPrice] = useState(props.items[0].price);
+  const [USD, setUSD] = useState(20);
   const [fetched, setFetched] = useState(false);
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
@@ -28,10 +27,11 @@ function Shipping(props) {
     setCountry(e.target.value);
     setFetched(false);
     fetch(
-      `https://omimaart.herokuapp.com/shippingfees/${props.items[0].price}&${e.target.value}`
+      `${process.env.REACT_APP_SERVER_URL}/shippingfees/${props.items[0].price}&${e.target.value}`
     )
       .then((response) => response.json())
       .then((data) => {
+        setUSD(Number(data.usd));
         setNewPrice(data.newPrice);
         setFetched(true);
       });
