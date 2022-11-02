@@ -73,9 +73,19 @@ function Category({ category }) {
             style={{ textDecoration: "inherit", color: "inherit" }}
             className={classes.child}
           >
-            <img src={painting.images[0]} alt={painting.title} />
+            <div
+              style={{
+                backgroundImage: `url(${painting.images[0]})`,
+                width: "270px",
+                height: "270px",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }}
+            ></div>
+            {/* <img src={painting.images[0]} alt={painting.title} /> */}
             <div className={classes.pName}>{painting.title}</div>
-            {/* <div className={classes.price}>
+            {/* <div className={classes.price}> 
               {painting.price === 0 ? `SOLD` : `$${painting.price}`}
             </div> */}
           </Link>
