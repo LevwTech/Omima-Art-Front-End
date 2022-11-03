@@ -9,7 +9,7 @@ function Category({ category }) {
   useEffect(() => {
     const scrollPosition = sessionStorage.getItem("scrollPosition");
     if (scrollPosition) {
-      window.scrollBy(0, parseInt(scrollPosition));
+      window.scrollTo(0, parseInt(scrollPosition));
       sessionStorage.removeItem("scrollPosition");
     }
   }, []);
