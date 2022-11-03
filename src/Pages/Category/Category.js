@@ -10,6 +10,7 @@ function Category({ category }) {
     const scrollPosition = sessionStorage.getItem("scrollPosition");
     if (scrollPosition) {
       window.scrollTo(0, Number(scrollPosition));
+      console.log(Number(scrollPosition));
       sessionStorage.removeItem("scrollPosition");
     }
   }, []);
