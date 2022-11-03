@@ -9,10 +9,7 @@ function Category({ category }) {
   useEffect(() => {
     const scrollPosition = sessionStorage.getItem("scrollPosition");
     if (scrollPosition) {
-      while (window.pageYOffset <= scrollPosition) {
-        window.scrollBy(0, 10);
-      }
-      // window.scrollTo(0, Number(scrollPosition));
+      window.scrollTo(0, Number(scrollPosition));
       sessionStorage.removeItem("scrollPosition");
     }
   }, []);
