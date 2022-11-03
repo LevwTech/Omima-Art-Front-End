@@ -6,6 +6,14 @@ import Button from "@mui/material/Button";
 import Skeleton from "@mui/material/Skeleton";
 
 function Category({ category }) {
+  useEffect(() => {
+    const scrollPosition = sessionStorage.getItem("scrollPosition");
+    if (scrollPosition) {
+      window.scrollTo(0, parseInt(scrollPosition, 10));
+      sessionStorage.removeItem("scrollPosition");
+    }
+  }, []);
+
   const [paintings, setPaintings] = useState([]);
   const [skip, setSkip] = useState(0);
   const [show, setShow] = useState(false);
@@ -72,6 +80,9 @@ function Category({ category }) {
             to={`/gallery/${painting._id}`}
             style={{ textDecoration: "inherit", color: "inherit" }}
             className={classes.child}
+            onClick={() => {
+              sessionStorage.setItem("scrollPosition", window.pageYOffset);
+            }}
           >
             <div
               style={{
