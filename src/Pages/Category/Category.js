@@ -4,16 +4,8 @@ import classes from "./Category.module.css";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Skeleton from "@mui/material/Skeleton";
-
+import { animateScroll } from "react-scroll";
 function Category({ category }) {
-  useEffect(() => {
-    const scrollPosition = sessionStorage.getItem("scrollPosition");
-    if (scrollPosition) {
-      window.scrollTo(0, Number(scrollPosition));
-      sessionStorage.removeItem("scrollPosition");
-    }
-  }, []);
-
   const [paintings, setPaintings] = useState([]);
   const [skip, setSkip] = useState(0);
   const [show, setShow] = useState(false);
@@ -26,11 +18,19 @@ function Category({ category }) {
         setPaintings((paintings) => [...paintings, ...data]);
         setShow(true);
       });
+
     setSkip((skip) => skip + 10);
   }
 
   useEffect(() => {
     loadPaintings();
+    const scrollPosition = sessionStorage.getItem("scrollPosition");
+    if (scrollPosition) {
+      animateScroll.scrollTo(Number(scrollPosition));
+      sessionStorage.removeItem("scrollPosition");
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   function capitalizeFirstLetter(string) {
@@ -82,6 +82,7 @@ function Category({ category }) {
             className={classes.child}
             onClick={() => {
               sessionStorage.setItem("scrollPosition", window.pageYOffset);
+              sessionStorage.setItem("savedSkip", skip - 10);
             }}
           >
             <div
