@@ -82,7 +82,6 @@ function Category({ category }) {
             className={classes.child}
             onClick={() => {
               sessionStorage.setItem("scrollPosition", window.pageYOffset);
-              sessionStorage.setItem("savedSkip", skip - 10);
             }}
           >
             <div
