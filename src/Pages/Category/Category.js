@@ -6,10 +6,25 @@ import Button from "@mui/material/Button";
 import Skeleton from "@mui/material/Skeleton";
 import { animateScroll } from "react-scroll";
 function Category({ category }) {
-  const [paintings, setPaintings] = useState([]);
-  const [skip, setSkip] = useState(0);
+  const [paintings, setPaintings] = useState(
+    JSON.parse(sessionStorage.getItem("savedPaintings")) || []
+  );
+  const [skip, setSkip] = useState(
+    Number(sessionStorage.getItem("savedSkip")) ?? 0
+  );
   const [show, setShow] = useState(false);
   function loadPaintings() {
+    const savedSkip = sessionStorage.getItem("savedSkip");
+    const savedPaintings = sessionStorage.getItem("savedPaintings");
+    if (savedSkip && savedPaintings) {
+      setSkip(Number(savedSkip));
+      setPaintings(JSON.parse(savedPaintings));
+      sessionStorage.removeItem("savedSkip");
+      sessionStorage.removeItem("savedPaintings");
+      setShow(true);
+      return;
+    }
+
     fetch(
       `${process.env.REACT_APP_SERVER_URL}/category/${category}?skip=${skip}`
     )
@@ -26,7 +41,9 @@ function Category({ category }) {
     loadPaintings();
     const scrollPosition = sessionStorage.getItem("scrollPosition");
     if (scrollPosition) {
-      animateScroll.scrollTo(Number(scrollPosition));
+      animateScroll.scrollTo(Number(scrollPosition), {
+        duration: 1,
+      });
       sessionStorage.removeItem("scrollPosition");
     } else {
       window.scrollTo(0, 0);
@@ -82,6 +99,11 @@ function Category({ category }) {
             className={classes.child}
             onClick={() => {
               sessionStorage.setItem("scrollPosition", window.pageYOffset);
+              sessionStorage.setItem("savedSkip", skip);
+              sessionStorage.setItem(
+                "savedPaintings",
+                JSON.stringify(paintings)
+              );
             }}
           >
             <div

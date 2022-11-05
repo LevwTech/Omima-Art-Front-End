@@ -11,7 +11,6 @@ import HeaderTitle from "../../Components/HeaderTitle/HeaderTitle";
 import ShareModal from "../../Components/ShareModal/ShareModal";
 import { Link } from "react-router-dom";
 import Skeleton from "@mui/material/Skeleton";
-
 function Exhibitions() {
   const [exhibitions, setExhibitions] = useState([]);
   const [show, setShow] = useState(false);
@@ -61,9 +60,11 @@ function Exhibitions() {
               />
               <Link
                 to={`/exhibitions/${exh._id}`}
-                style={{ textDecoration: "none", color: '#494848'}}
+                style={{ textDecoration: "none", color: "#494848" }}
               >
-                <Button size="small" style={{ color: '#494848'}}>Learn More</Button>
+                <Button size="small" style={{ color: "#494848" }}>
+                  Learn More
+                </Button>
               </Link>
             </CardActions>
           </Card>
