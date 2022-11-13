@@ -11,21 +11,48 @@ import HeaderTitle from "../../Components/HeaderTitle/HeaderTitle";
 import ShareModal from "../../Components/ShareModal/ShareModal";
 import { Link } from "react-router-dom";
 import Skeleton from "@mui/material/Skeleton";
+import { animateScroll } from "react-scroll";
 function Exhibitions() {
-  const [exhibitions, setExhibitions] = useState([]);
+  const [exhibitions, setExhibitions] = useState(
+    JSON.parse(sessionStorage.getItem("savedExhibitions")) || []
+  );
+  const [skip, setSkip] = useState(
+    Number(sessionStorage.getItem("savedSkip")) ?? 0
+  );
   const [show, setShow] = useState(false);
 
   function loadExhibitions() {
-    fetch(`${process.env.REACT_APP_SERVER_URL}/exhibitions`)
+    const savedSkip = sessionStorage.getItem("savedSkip");
+    const savedExhibitions = sessionStorage.getItem("savedExhibitions");
+    if (savedSkip && savedExhibitions) {
+      setSkip(Number(savedSkip));
+      setExhibitions(JSON.parse(savedExhibitions));
+      sessionStorage.removeItem("savedSkip");
+      sessionStorage.removeItem("savedExhibitions");
+      setShow(true);
+      return;
+    }
+
+    fetch(`${process.env.REACT_APP_SERVER_URL}/exhibitions?skip=${skip}`)
       .then((response) => response.json())
       .then((data) => {
         setExhibitions([...data]);
         setShow(true);
       });
+    setSkip((skip) => skip + 10);
   }
 
   useEffect(() => {
     loadExhibitions();
+    const scrollPosition = sessionStorage.getItem("scrollPosition");
+    if (scrollPosition) {
+      animateScroll.scrollTo(Number(scrollPosition), {
+        duration: 1,
+      });
+      sessionStorage.removeItem("scrollPosition");
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, []);
   if (!show)
     return (
@@ -61,6 +88,14 @@ function Exhibitions() {
               <Link
                 to={`/exhibitions/${exh._id}`}
                 style={{ textDecoration: "none", color: "#494848" }}
+                onClick={() => {
+                  sessionStorage.setItem("scrollPosition", window.pageYOffset);
+                  sessionStorage.setItem("savedSkip", skip);
+                  sessionStorage.setItem(
+                    "savedExhibitions",
+                    JSON.stringify(exhibitions)
+                  );
+                }}
               >
                 <Button size="small" style={{ color: "#494848" }}>
                   Learn More

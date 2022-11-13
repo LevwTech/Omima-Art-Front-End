@@ -33,7 +33,6 @@ function Category({ category }) {
         setPaintings((paintings) => [...paintings, ...data]);
         setShow(true);
       });
-
     setSkip((skip) => skip + 10);
   }
 
