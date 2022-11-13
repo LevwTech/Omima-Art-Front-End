@@ -11,3 +11,9 @@
 .child {
   margin: 20px;
 }
+.seeMoreBtn {
+  width: 30%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 20px;
+}

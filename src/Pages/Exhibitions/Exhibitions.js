@@ -36,7 +36,7 @@ function Exhibitions() {
     fetch(`${process.env.REACT_APP_SERVER_URL}/exhibitions?skip=${skip}`)
       .then((response) => response.json())
       .then((data) => {
-        setExhibitions([...data]);
+        setExhibitions([...exhibitions, ...data]);
         setShow(true);
       });
     setSkip((skip) => skip + 10);
@@ -104,6 +104,20 @@ function Exhibitions() {
             </CardActions>
           </Card>
         ))}
+      </div>
+      <div className={classes.seeMoreBtn}>
+        <Button
+          size="large"
+          variant="contained"
+          onClick={loadExhibitions}
+          style={{
+            background: "#dcecf3",
+            color: "#494848",
+            fontWeight: "bold",
+          }}
+        >
+          Load More
+        </Button>
       </div>
     </div>
   );
