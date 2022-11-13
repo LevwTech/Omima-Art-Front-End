@@ -1,5 +1,6 @@
-import Nav from "./Components/Nav/Nav.js";
 import React from "react";
+import axios from "axios";
+import Nav from "./Components/Nav/Nav.js";
 import Footer from "./Components/Footer/Footer.js";
 import { Route, Routes } from "react-router-dom";
 import Gallery from "./Pages/Gallery/Gallery";
@@ -19,6 +20,10 @@ import Category from "./Pages/Category/Category";
 const categories = ["floral", "landscape", "abstract", "paper"];
 function App() {
   const { isAuthenticated } = useAuth0();
+  const bootServer = async () => {
+    await axios.get(`${process.env.REACT_APP_SERVER_URL}/boot`);
+  };
+  bootServer(); // saves 2 to 3 second of cold boot server time, remove on buying a new hosting droplet
   return (
     <React.Fragment>
       <Nav />
