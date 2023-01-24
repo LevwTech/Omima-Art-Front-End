@@ -17,6 +17,8 @@ import ScrollToTopFix from "./Components/ScrollToTopFix/ScrollToTopFix";
 import PaymentSuccessful from "./Pages/PaymentSuccessful/PaymentSuccessful";
 import PaymentFailed from "./Pages/PaymentFailed/PaymentFailed";
 import Category from "./Pages/Category/Category";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
+import profilePic from "./Assets/profilepic.jpg";
 const categories = ["floral", "landscape", "abstract", "paper"];
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -45,6 +47,16 @@ function App() {
         {isAuthenticated && <Route path="admin" element={<Admin />} />}
         <Route path="*" element={<NoPage />} />
       </Routes>
+      <FloatingWhatsApp
+        phoneNumber="+201159275566"
+        accountName="Omima Art Gallery"
+        allowEsc
+        allowClickAway
+        notification
+        notificationSound
+        statusMessage
+        avatar={profilePic}
+      />
       <Footer />
     </React.Fragment>
   );
