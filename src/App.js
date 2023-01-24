@@ -17,7 +17,7 @@ import ScrollToTopFix from "./Components/ScrollToTopFix/ScrollToTopFix";
 import PaymentSuccessful from "./Pages/PaymentSuccessful/PaymentSuccessful";
 import PaymentFailed from "./Pages/PaymentFailed/PaymentFailed";
 import Category from "./Pages/Category/Category";
-import { FloatingWhatsApp } from "react-floating-whatsapp";
+import FloatingWhatsApp  from "react-floating-whatsapp";
 import profilePic from "./Assets/profilepic.jpg";
 const categories = ["floral", "landscape", "abstract", "paper"];
 function App() {
