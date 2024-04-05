@@ -30,3 +30,16 @@
     font-size: 10px;
   }
 }
+.contact {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+.contact a {
+  text-decoration: none;
+  color: #18709c;
+  margin: 5px;
+}
