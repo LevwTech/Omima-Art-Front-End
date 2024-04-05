@@ -11,12 +11,12 @@ function PaymentFailed() {
         sub="Something Went Wrong, Please Contact Me"
       />
       <div className={classes.otherPaymentOptions}>
-        Contact me at &nbsp;<a
+        Contact me at <a
           href="https://www.instagram.com/omimaaboelnasr_art/"
           target="_blank"
           rel="noreferrer"
         > Instagram 
-        </a> &nbsp; to explore other payment options
+        </a> to explore other payment options
       </div>
       <div style={{ display: "flex", justifyContent: "space-around" }}>
         <img
@@ -26,9 +26,11 @@ function PaymentFailed() {
         />
       </div>
       <div className={classes.otherPaymentOptions}>
+        <div></div>
         <a href="mailto:omimaaboelnasr@hotmail.com">
           Omimaaboelnasr@hotmail.com
         </a>
+        <div></div>
         <a
           href="https://www.facebook.com/OA-Art-Gallery-1475989659102601"
           target="_blank"
