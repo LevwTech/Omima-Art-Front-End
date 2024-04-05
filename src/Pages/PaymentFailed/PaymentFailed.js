@@ -25,12 +25,10 @@ function PaymentFailed() {
           className={classes.paymentfailed}
         />
       </div>
-      <div className={classes.contact}>
-        <div>You can email me directly at</div>
+      <div className={classes.otherPaymentOptions}>
         <a href="mailto:omimaaboelnasr@hotmail.com">
           Omimaaboelnasr@hotmail.com
         </a>
-        <div>or send me a message at</div>
         <a
           href="https://www.facebook.com/OA-Art-Gallery-1475989659102601"
           target="_blank"

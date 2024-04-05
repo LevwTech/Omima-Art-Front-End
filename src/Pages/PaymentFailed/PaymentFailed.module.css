@@ -8,29 +8,6 @@
   }
 }
 .otherPaymentOptions{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  font-size: 25px;
-  font-weight: bold;
-}
-@media (max-width: 900px) {
-  .otherPaymentOptions {
-    font-size: 20px;
-  }
-}
-@media (max-width: 600px) {
-  .otherPaymentOptions {
-    font-size: 15px;
-  }
-}
-@media (max-width: 400px) {
-  .otherPaymentOptions {
-    font-size: 10px;
-  }
-}
-.contact {
   font-family: "Roboto", sans-serif;
   font-size: 20px;
   text-align: center;
@@ -38,7 +15,7 @@
   margin-bottom: 30px;
   line-height: 1.5;
 }
-.contact a {
+.otherPaymentOptions a {
   text-decoration: none;
   color: #18709c;
   margin: 5px;
