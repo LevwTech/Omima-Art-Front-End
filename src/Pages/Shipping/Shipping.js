@@ -4,6 +4,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import classes from "./Shipping.module.css";
 import Button from "@mui/material/Button";
 import countriesData from "./countries.json";
+import ReactPixel from 'react-facebook-pixel';
+ReactPixel.init('1164298538273584');
+
 const countries = countriesData.countries;
 function Shipping(props) {
   const { isAuthenticated, user } = useAuth0();
@@ -74,7 +77,7 @@ function Shipping(props) {
         fontWeight: "bold",
       });
     }
-
+    ReactPixel.track('Purchase');
     fetch(`${process.env.REACT_APP_SERVER_URL}/payment`, {
       method: "POST",
       body: JSON.stringify({

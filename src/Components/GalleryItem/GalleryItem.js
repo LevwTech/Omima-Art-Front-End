@@ -13,6 +13,8 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import Shipping from "../../Pages/Shipping/Shipping";
+import ReactPixel from 'react-facebook-pixel';
+ReactPixel.init('1164298538273584');
 
 function GalleryItem() {
   const [showShipping, setShowShipping] = useState(false);
@@ -33,6 +35,7 @@ function GalleryItem() {
   }
 
   useEffect(() => {
+    ReactPixel.track('ViewContent');
     fetch(`${process.env.REACT_APP_SERVER_URL}/painting/${id}`)
       .then((response) => response.json())
       .then((data) => {
@@ -42,6 +45,7 @@ function GalleryItem() {
   }, []);
 
   function onClickHandler() {
+    ReactPixel.track('InitiateCheckout');
     setShowShipping(true);
   }
   if (!show)

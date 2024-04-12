@@ -19,6 +19,9 @@ import PaymentFailed from "./Pages/PaymentFailed/PaymentFailed";
 import Category from "./Pages/Category/Category";
 import FloatingWhatsApp  from "react-floating-whatsapp";
 import profilePic from "./Assets/profilepic.jpg";
+import ReactPixel from 'react-facebook-pixel';
+ReactPixel.init('1164298538273584');
+
 const categories = ["floral", "landscape", "abstract", "paper"];
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -26,6 +29,7 @@ function App() {
     await axios.get(`${process.env.REACT_APP_SERVER_URL}/boot`);
   };
   bootServer(); // saves 2 to 3 second of cold boot server time, remove on buying a new hosting droplet
+  ReactPixel.pageView();
   return (
     <React.Fragment>
       <Nav />

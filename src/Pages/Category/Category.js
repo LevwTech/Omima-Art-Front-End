@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Skeleton from "@mui/material/Skeleton";
 import { animateScroll } from "react-scroll";
+import ReactPixel from 'react-facebook-pixel';
+ReactPixel.init('1164298538273584');
+
 function Category({ category }) {
   const [paintings, setPaintings] = useState(
     JSON.parse(sessionStorage.getItem("savedPaintings")) || []
@@ -37,6 +40,7 @@ function Category({ category }) {
   }
 
   useEffect(() => {
+    ReactPixel.track('ViewContent');
     loadPaintings();
     const scrollPosition = sessionStorage.getItem("scrollPosition");
     if (scrollPosition) {
