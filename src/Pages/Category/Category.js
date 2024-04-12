@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import Skeleton from "@mui/material/Skeleton";
 import { animateScroll } from "react-scroll";
 import ReactPixel from 'react-facebook-pixel';
-ReactPixel.init('1164298538273584');
+ReactPixel.init(process.env.REACT_APP_FB_PIXEL_ID);
 
 function Category({ category }) {
   const [paintings, setPaintings] = useState(

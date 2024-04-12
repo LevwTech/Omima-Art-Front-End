@@ -5,7 +5,7 @@ import classes from "./Shipping.module.css";
 import Button from "@mui/material/Button";
 import countriesData from "./countries.json";
 import ReactPixel from 'react-facebook-pixel';
-ReactPixel.init('1164298538273584');
+ReactPixel.init(process.env.REACT_APP_FB_PIXEL_ID);
 
 const countries = countriesData.countries;
 function Shipping(props) {

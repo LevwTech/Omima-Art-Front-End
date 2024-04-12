@@ -14,7 +14,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 import Shipping from "../../Pages/Shipping/Shipping";
 import ReactPixel from 'react-facebook-pixel';
-ReactPixel.init('1164298538273584');
+ReactPixel.init(process.env.REACT_APP_FB_PIXEL_ID);
 
 function GalleryItem() {
   const [showShipping, setShowShipping] = useState(false);

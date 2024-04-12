@@ -20,7 +20,7 @@ import Category from "./Pages/Category/Category";
 import FloatingWhatsApp  from "react-floating-whatsapp";
 import profilePic from "./Assets/profilepic.jpg";
 import ReactPixel from 'react-facebook-pixel';
-ReactPixel.init('1164298538273584');
+ReactPixel.init(process.env.REACT_APP_FB_PIXEL_ID);
 
 const categories = ["floral", "landscape", "abstract", "paper"];
 function App() {
