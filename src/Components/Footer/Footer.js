@@ -47,7 +47,7 @@ function Footer() {
             <img src={FBIcon} alt="facebook" />
           </a>
           <a
-            href="https://www.instagram.com/omimaaboelnasr_art/"
+            href="https://www.instagram.com/omima_aboelnasr_art/"
             target="_blank"
             rel="noreferrer"
           >

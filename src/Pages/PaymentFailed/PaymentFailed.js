@@ -12,7 +12,7 @@ function PaymentFailed() {
       />
       <div className={classes.otherPaymentOptions}>
         Contact me at <a
-          href="https://www.instagram.com/omimaaboelnasr_art/"
+          href="https://www.instagram.com/omima_aboelnasr_art/"
           target="_blank"
           rel="noreferrer"
         > Instagram 
@@ -39,7 +39,7 @@ function PaymentFailed() {
           <img src={FBIcon} alt="facebook" />
         </a>
         <a
-          href="https://www.instagram.com/omimaaboelnasr_art/"
+          href="https://www.instagram.com/omima_aboelnasr_art/"
           target="_blank"
           rel="noreferrer"
         >
