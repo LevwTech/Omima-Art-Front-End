@@ -62,6 +62,19 @@ function Gallery() {
         >
           <div>Paper</div>
         </Link>
+
+        <Link
+          to="/still-life"
+          style={{
+            textDecoration: "inherit",
+            color: "inherit",
+            width: "260px",
+            height: "260px",
+          }}
+          className={`${classes.child} ${classes.img5}`}
+        >
+          <div>Still Life</div>
+        </Link>
       </div>
       <div style={{ marginBottom: "300px" }}></div>
     </div>

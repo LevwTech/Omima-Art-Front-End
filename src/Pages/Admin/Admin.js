@@ -143,6 +143,9 @@ function Admin() {
               <option value="paper" name="category">
                 Paper
               </option>
+              <option value="still-life" name="category">
+                Still Life
+              </option>
             </select>
 
             <label htmlFor="images">Images</label>
