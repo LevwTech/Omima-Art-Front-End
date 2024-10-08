@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-const scrollablePages = ["floral", "landscape", "abstract", "paper", "still-life"];
+const scrollablePages = ["floral", "landscape", "abstract", "paper", "figure"];
 
 const ScrollToTop = ({ children }) => {
   const { pathname } = useLocation();

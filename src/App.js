@@ -22,7 +22,7 @@ import profilePic from "./Assets/profilepic.jpg";
 import ReactPixel from 'react-facebook-pixel';
 ReactPixel.init(process.env.REACT_APP_FB_PIXEL_ID);
 
-const categories = ["floral", "landscape", "abstract", "paper", "still-life"];
+const categories = ["floral", "landscape", "abstract", "paper", "figure"];
 function App() {
   const { isAuthenticated } = useAuth0();
   const bootServer = async () => {

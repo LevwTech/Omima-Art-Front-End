@@ -143,8 +143,8 @@ function Admin() {
               <option value="paper" name="category">
                 Paper
               </option>
-              <option value="still-life" name="category">
-                Still Life
+              <option value="figure" name="category">
+                Figure
               </option>
             </select>
 

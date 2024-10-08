@@ -64,7 +64,7 @@ function Gallery() {
         </Link>
 
         <Link
-          to="/still-life"
+          to="/figure"
           style={{
             textDecoration: "inherit",
             color: "inherit",
@@ -73,7 +73,7 @@ function Gallery() {
           }}
           className={`${classes.child} ${classes.img5}`}
         >
-          <div>Still Life</div>
+          <div>Figure</div>
         </Link>
       </div>
       <div style={{ marginBottom: "300px" }}></div>
